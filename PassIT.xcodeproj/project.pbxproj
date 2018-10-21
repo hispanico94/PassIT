@@ -8,20 +8,32 @@
 
 /* Begin PBXBuildFile section */
 		CF1722742173448F009E3577 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1722732173448F009E3577 /* AppDelegate.swift */; };
-		CF1722762173448F009E3577 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1722752173448F009E3577 /* ViewController.swift */; };
-		CF1722792173448F009E3577 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF1722772173448F009E3577 /* Main.storyboard */; };
 		CF17227B21734490009E3577 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF17227A21734490009E3577 /* Assets.xcassets */; };
 		CF17227E21734490009E3577 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF17227C21734490009E3577 /* LaunchScreen.storyboard */; };
+		CFD094CA217CC8F600D350F1 /* JsonFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD094C9217CC8F600D350F1 /* JsonFile.swift */; };
+		CFD094CC217CCA4900D350F1 /* PassMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD094CB217CCA4900D350F1 /* PassMarkerView.swift */; };
+		CFD094CE217CD38100D350F1 /* Passes.json in Resources */ = {isa = PBXBuildFile; fileRef = CFD094CD217CD38100D350F1 /* Passes.json */; };
+		CFD36AFC217A19090025BB34 /* Pass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD36AFB217A19090025BB34 /* Pass.swift */; };
+		CFDFF7172173A18E00205BDF /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDFF7152173A18E00205BDF /* MapViewController.swift */; };
+		CFDFF7182173A18E00205BDF /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFDFF7162173A18E00205BDF /* MapViewController.xib */; };
+		CFDFF71B2173A1C500205BDF /* PassTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDFF7192173A1C500205BDF /* PassTableViewController.swift */; };
+		CFDFF71C2173A1C500205BDF /* PassTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFDFF71A2173A1C500205BDF /* PassTableViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		CF1722702173448F009E3577 /* PassIT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PassIT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF1722732173448F009E3577 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CF1722752173448F009E3577 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		CF1722782173448F009E3577 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CF17227A21734490009E3577 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CF17227D21734490009E3577 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CF17227F21734490009E3577 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CFD094C9217CC8F600D350F1 /* JsonFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonFile.swift; sourceTree = "<group>"; };
+		CFD094CB217CCA4900D350F1 /* PassMarkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassMarkerView.swift; sourceTree = "<group>"; };
+		CFD094CD217CD38100D350F1 /* Passes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Passes.json; path = PassIT/Passes.json; sourceTree = SOURCE_ROOT; };
+		CFD36AFB217A19090025BB34 /* Pass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pass.swift; sourceTree = "<group>"; };
+		CFDFF7152173A18E00205BDF /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		CFDFF7162173A18E00205BDF /* MapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
+		CFDFF7192173A1C500205BDF /* PassTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassTableViewController.swift; sourceTree = "<group>"; };
+		CFDFF71A2173A1C500205BDF /* PassTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PassTableViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +52,7 @@
 			children = (
 				CF1722722173448F009E3577 /* PassIT */,
 				CF1722712173448F009E3577 /* Products */,
+				CFDFF7132173A14B00205BDF /* Elements */,
 			);
 			sourceTree = "<group>";
 		};
@@ -55,13 +68,34 @@
 			isa = PBXGroup;
 			children = (
 				CF1722732173448F009E3577 /* AppDelegate.swift */,
-				CF1722752173448F009E3577 /* ViewController.swift */,
-				CF1722772173448F009E3577 /* Main.storyboard */,
 				CF17227A21734490009E3577 /* Assets.xcassets */,
 				CF17227C21734490009E3577 /* LaunchScreen.storyboard */,
 				CF17227F21734490009E3577 /* Info.plist */,
+				CFD094CD217CD38100D350F1 /* Passes.json */,
 			);
 			path = PassIT;
+			sourceTree = "<group>";
+		};
+		CFDFF7132173A14B00205BDF /* Elements */ = {
+			isa = PBXGroup;
+			children = (
+				CFDFF7142173A15A00205BDF /* View Controllers */,
+				CFD36AFB217A19090025BB34 /* Pass.swift */,
+				CFD094C9217CC8F600D350F1 /* JsonFile.swift */,
+				CFD094CB217CCA4900D350F1 /* PassMarkerView.swift */,
+			);
+			path = Elements;
+			sourceTree = "<group>";
+		};
+		CFDFF7142173A15A00205BDF /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CFDFF7152173A18E00205BDF /* MapViewController.swift */,
+				CFDFF7162173A18E00205BDF /* MapViewController.xib */,
+				CFDFF7192173A1C500205BDF /* PassTableViewController.swift */,
+				CFDFF71A2173A1C500205BDF /* PassTableViewController.xib */,
+			);
+			path = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -123,8 +157,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF17227E21734490009E3577 /* LaunchScreen.storyboard in Resources */,
+				CFDFF7182173A18E00205BDF /* MapViewController.xib in Resources */,
+				CFD094CE217CD38100D350F1 /* Passes.json in Resources */,
+				CFDFF71C2173A1C500205BDF /* PassTableViewController.xib in Resources */,
 				CF17227B21734490009E3577 /* Assets.xcassets in Resources */,
-				CF1722792173448F009E3577 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,22 +171,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CF1722762173448F009E3577 /* ViewController.swift in Sources */,
+				CFD36AFC217A19090025BB34 /* Pass.swift in Sources */,
+				CFD094CC217CCA4900D350F1 /* PassMarkerView.swift in Sources */,
 				CF1722742173448F009E3577 /* AppDelegate.swift in Sources */,
+				CFDFF71B2173A1C500205BDF /* PassTableViewController.swift in Sources */,
+				CFDFF7172173A18E00205BDF /* MapViewController.swift in Sources */,
+				CFD094CA217CC8F600D350F1 /* JsonFile.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		CF1722772173448F009E3577 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CF1722782173448F009E3577 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		CF17227C21734490009E3577 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
