@@ -10,19 +10,59 @@ class PassAnnotation: NSObject, MKAnnotation {
         return pass.name
     }
     var subtitle: String? {
-        return pass.elevation?.description
+        return pass.elevation?.integerDescription
     }
     var color: UIColor? {
         switch pass.address.region {
-        case .abruzzo:
+        case .friuliVeneziaGiulia:
+            return nil
+        case .veneto:
             return .blue
-        case .emiliaRomagna:
-            return .green
         case .trentinoAltoAdige:
             return .purple
+        case .lombardia:
+            return nil
+        case .valleAosta:
+            return .brown
+        case .piemonte:
+            return .blue
+        case .liguria:
+            return .purple
+        case .emiliaRomagna:
+            return .brown
+        case .toscana:
+            return .blue
+        case .marche:
+            return .purple
+        case .umbria:
+            return nil
+        case .lazio:
+            return .brown
+        case .abruzzo:
+            return .blue
+        case .molise:
+            return .purple
+        case .campania:
+            return nil
+        case .basilicata:
+            return .blue
+        case .calabria:
+            return .brown
         default:
             return nil
         }
+    }
+    var icon: String? {
+        guard let type = pass.type else { return nil }
+        switch type {
+        case .pass:
+            return "pass_icon"
+        case .peak:
+            return "peak_icon"
+        }
+    }
+    var address: String {
+        return "\(pass.address.road), \(pass.address.municipality)"
     }
     
     init(pass: Pass) {
@@ -38,6 +78,12 @@ class PassMarkerView: MKMarkerAnnotationView {
             guard let pass = newValue as? PassAnnotation else { return }
             
             markerTintColor = pass.color
+            
+            detailCalloutAccessoryView = DetailAccessoryViewController(elevation: pass.subtitle, address: pass.address, coordinates: pass.coordinate).view
+            
+            if let icon = pass.icon {
+                glyphImage = UIImage(named: icon)
+            }
         }
     }
 }
