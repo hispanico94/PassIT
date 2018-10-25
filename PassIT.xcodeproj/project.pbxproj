@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CF034B472181C259003ED8D0 /* DetailAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF034B462181C259003ED8D0 /* DetailAccessoryView.swift */; };
+		CF034B492181C26C003ED8D0 /* DetailAccessoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF034B482181C26C003ED8D0 /* DetailAccessoryView.xib */; };
 		CF1722742173448F009E3577 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1722732173448F009E3577 /* AppDelegate.swift */; };
 		CF17227B21734490009E3577 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF17227A21734490009E3577 /* Assets.xcassets */; };
 		CF17227E21734490009E3577 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF17227C21734490009E3577 /* LaunchScreen.storyboard */; };
 		CF354635217E12D300759A84 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF354634217E12D300759A84 /* Extensions.swift */; };
-		CF354638217E165F00759A84 /* DetailAccessoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF354636217E165F00759A84 /* DetailAccessoryViewController.swift */; };
-		CF354639217E165F00759A84 /* DetailAccessoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF354637217E165F00759A84 /* DetailAccessoryViewController.xib */; };
 		CFD094CA217CC8F600D350F1 /* JsonFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD094C9217CC8F600D350F1 /* JsonFile.swift */; };
 		CFD094CC217CCA4900D350F1 /* PassMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD094CB217CCA4900D350F1 /* PassMarkerView.swift */; };
 		CFD094CE217CD38100D350F1 /* Passes.json in Resources */ = {isa = PBXBuildFile; fileRef = CFD094CD217CD38100D350F1 /* Passes.json */; };
@@ -24,14 +24,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CF034B462181C259003ED8D0 /* DetailAccessoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAccessoryView.swift; sourceTree = "<group>"; };
+		CF034B482181C26C003ED8D0 /* DetailAccessoryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailAccessoryView.xib; sourceTree = "<group>"; };
 		CF1722702173448F009E3577 /* PassIT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PassIT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF1722732173448F009E3577 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CF17227A21734490009E3577 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CF17227D21734490009E3577 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CF17227F21734490009E3577 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CF354634217E12D300759A84 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		CF354636217E165F00759A84 /* DetailAccessoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAccessoryViewController.swift; sourceTree = "<group>"; };
-		CF354637217E165F00759A84 /* DetailAccessoryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailAccessoryViewController.xib; sourceTree = "<group>"; };
 		CFD094C9217CC8F600D350F1 /* JsonFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonFile.swift; sourceTree = "<group>"; };
 		CFD094CB217CCA4900D350F1 /* PassMarkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassMarkerView.swift; sourceTree = "<group>"; };
 		CFD094CD217CD38100D350F1 /* Passes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Passes.json; path = PassIT/Passes.json; sourceTree = SOURCE_ROOT; };
@@ -101,8 +101,8 @@
 				CFDFF7162173A18E00205BDF /* MapViewController.xib */,
 				CFDFF7192173A1C500205BDF /* PassTableViewController.swift */,
 				CFDFF71A2173A1C500205BDF /* PassTableViewController.xib */,
-				CF354636217E165F00759A84 /* DetailAccessoryViewController.swift */,
-				CF354637217E165F00759A84 /* DetailAccessoryViewController.xib */,
+				CF034B462181C259003ED8D0 /* DetailAccessoryView.swift */,
+				CF034B482181C26C003ED8D0 /* DetailAccessoryView.xib */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -167,7 +167,7 @@
 			files = (
 				CF17227E21734490009E3577 /* LaunchScreen.storyboard in Resources */,
 				CFDFF7182173A18E00205BDF /* MapViewController.xib in Resources */,
-				CF354639217E165F00759A84 /* DetailAccessoryViewController.xib in Resources */,
+				CF034B492181C26C003ED8D0 /* DetailAccessoryView.xib in Resources */,
 				CFD094CE217CD38100D350F1 /* Passes.json in Resources */,
 				CFDFF71C2173A1C500205BDF /* PassTableViewController.xib in Resources */,
 				CF17227B21734490009E3577 /* Assets.xcassets in Resources */,
@@ -181,11 +181,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF034B472181C259003ED8D0 /* DetailAccessoryView.swift in Sources */,
 				CFD36AFC217A19090025BB34 /* Pass.swift in Sources */,
 				CFD094CC217CCA4900D350F1 /* PassMarkerView.swift in Sources */,
 				CF1722742173448F009E3577 /* AppDelegate.swift in Sources */,
 				CFDFF71B2173A1C500205BDF /* PassTableViewController.swift in Sources */,
-				CF354638217E165F00759A84 /* DetailAccessoryViewController.swift in Sources */,
 				CFDFF7172173A18E00205BDF /* MapViewController.swift in Sources */,
 				CFD094CA217CC8F600D350F1 /* JsonFile.swift in Sources */,
 				CF354635217E12D300759A84 /* Extensions.swift in Sources */,
