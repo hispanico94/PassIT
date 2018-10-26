@@ -32,11 +32,13 @@ enum PassType: String {
 struct Address: Codable {
     let road: String
     let municipality: String
+    let province: String
     let region: Region
     
     enum CodingKeys: String, CodingKey {
         case road
         case municipality
+        case province
         case region
     }
 }
@@ -90,8 +92,9 @@ extension Pass: Codable {
         let addressValues = try values.nestedContainer(keyedBy: Address.CodingKeys.self, forKey: .address)
         let road = try addressValues.decode(String.self, forKey: .road)
         let municipality = try addressValues.decode(String.self, forKey: .municipality)
+        let province = try addressValues.decode(String.self, forKey: .province)
         let region = try addressValues.decode(Region.self, forKey: .region)
-        self.address = Address(road: road, municipality: municipality, region: region)
+        self.address = Address(road: road, municipality: municipality, province: province, region: region)
     }
     
     func encode(to encoder: Encoder) throws {
@@ -108,6 +111,7 @@ extension Pass: Codable {
         var addressContainer = container.nestedContainer(keyedBy: Address.CodingKeys.self, forKey: .address)
         try addressContainer.encode(address.road, forKey: .road)
         try addressContainer.encode(address.municipality, forKey: .municipality)
+        try addressContainer.encode(address.province, forKey: .province)
         try addressContainer.encode(address.region, forKey: .region)
     }
 }

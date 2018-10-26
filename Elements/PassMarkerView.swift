@@ -62,7 +62,7 @@ class PassAnnotation: NSObject, MKAnnotation {
         }
     }
     var address: String {
-        return "\(pass.address.road), \(pass.address.municipality)"
+        return "\(pass.address.road), \(pass.address.municipality) (\(pass.address.province))"
     }
     
     init(pass: Pass) {
@@ -80,13 +80,10 @@ class PassMarkerView: MKMarkerAnnotationView {
             markerTintColor = pass.color
             
             if let views = Bundle.main.loadNibNamed("DetailAccessoryView", owner: self, options: nil) as? [DetailAccessoryView], views.count > 0 {
-                print("Casted and present")
                 let detailAccessoryView = views.first!
                 detailAccessoryView.configure(elevation: pass.subtitle, address: pass.address, coordinates: pass.coordinate)
                 detailCalloutAccessoryView = detailAccessoryView
             }
-            
-            //DetailAccessoryViewController(elevation: pass.subtitle, address: pass.address, coordinates: pass.coordinate).view
             
             if let icon = pass.icon {
                 glyphImage = UIImage(named: icon)
