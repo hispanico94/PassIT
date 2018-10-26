@@ -9,10 +9,21 @@
 import UIKit
 
 class PassTableViewController: UITableViewController {
-        
+    
+    let passes: [Pass]
+    
+    init(passes: [Pass]) {
+        self.passes = passes
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "list"
+        self.tabBarItem = UITabBarItem(title: "List", image: UIImage(named: "list_tab_bar_icon"), tag: 1)
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

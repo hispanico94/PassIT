@@ -8,18 +8,26 @@ class MapViewController: UIViewController {
     
     let initialRegionRadius: CLLocationDistance = 20000
     
-    var passes: [Pass] = []
+    let passes: [Pass]
+    
+    init(passes: [Pass]) {
+        self.passes = passes
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Map"
+        
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
         locationManager.requestLocation()
         
         mapView.register(PassMarkerView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
         
-        passes = getPassesFromJson()
         let passesAnnotations = passes.map(PassAnnotation.init)
         mapView.addAnnotations(passesAnnotations)
     }
@@ -41,22 +49,6 @@ class MapViewController: UIViewController {
         let userRegion = MKCoordinateRegion(center: coordinates, latitudinalMeters: initialRegionRadius, longitudinalMeters: initialRegionRadius)
         mapView.setRegion(userRegion, animated: true)
     }
-    
-    private func getPassesFromJson() -> [Pass] {
-        guard let filePath = Bundle.main.path(forResource: "Passes", ofType: ".json") else { return [] }
-        let url = URL(fileURLWithPath: filePath)
-        
-        do {
-            let data = try Data(contentsOf: url)
-            let jsonFile = try JSONDecoder().decode(JsonFile.self, from: data)
-            return jsonFile.passes
-        } catch {
-            print(error)
-        }
-        return []
-    }
-    
-    
 }
 
 extension MapViewController: CLLocationManagerDelegate {
