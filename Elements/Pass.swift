@@ -43,7 +43,7 @@ struct Address: Codable {
     }
 }
 
-enum Region: String, Codable {
+enum Region: String, Codable, CaseIterable {
     case valleAosta = "Valle d'Aosta"
     case piemonte = "Piemonte"
     case liguria = "Liguria"
