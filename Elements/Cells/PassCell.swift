@@ -10,8 +10,11 @@ import UIKit
 
 class PassCell: UITableViewCell {
     static let defaultIdentifier = "PassCellIdentifier"
+    private(set) var pass: Pass?
     
     func set(withPass pass: Pass) -> PassCell {
+        self.pass = pass
+        
         self.textLabel?.text = pass.name
         
         if let elevation = pass.elevation {
@@ -31,16 +34,4 @@ class PassCell: UITableViewCell {
         
         return self
     }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
 }
