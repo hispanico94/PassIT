@@ -15,7 +15,6 @@
 		CF354635217E12D300759A84 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF354634217E12D300759A84 /* Extensions.swift */; };
 		CF43347B2187082600473B97 /* PassCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4334792187082600473B97 /* PassCell.swift */; };
 		CF43347C2187082600473B97 /* PassCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF43347A2187082600473B97 /* PassCell.xib */; };
-		CF67C2622187198E00A2B720 /* PassSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF67C2612187198E00A2B720 /* PassSection.swift */; };
 		CFD094CA217CC8F600D350F1 /* JsonFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD094C9217CC8F600D350F1 /* JsonFile.swift */; };
 		CFD094CC217CCA4900D350F1 /* PassMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD094CB217CCA4900D350F1 /* PassMarkerView.swift */; };
 		CFD094CE217CD38100D350F1 /* Passes.json in Resources */ = {isa = PBXBuildFile; fileRef = CFD094CD217CD38100D350F1 /* Passes.json */; };
@@ -24,6 +23,8 @@
 		CFDFF7182173A18E00205BDF /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFDFF7162173A18E00205BDF /* MapViewController.xib */; };
 		CFDFF71B2173A1C500205BDF /* PassTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDFF7192173A1C500205BDF /* PassTableViewController.swift */; };
 		CFDFF71C2173A1C500205BDF /* PassTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFDFF71A2173A1C500205BDF /* PassTableViewController.xib */; };
+		CFE08ACD2189A45300A86089 /* PassTableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE08ACC2189A45300A86089 /* PassTableDataSource.swift */; };
+		CFE08AD22189ACBB00A86089 /* PassTableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE08AD12189ACBB00A86089 /* PassTableDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,7 +38,6 @@
 		CF354634217E12D300759A84 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		CF4334792187082600473B97 /* PassCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassCell.swift; sourceTree = "<group>"; };
 		CF43347A2187082600473B97 /* PassCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PassCell.xib; sourceTree = "<group>"; };
-		CF67C2612187198E00A2B720 /* PassSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassSection.swift; sourceTree = "<group>"; };
 		CFD094C9217CC8F600D350F1 /* JsonFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonFile.swift; sourceTree = "<group>"; };
 		CFD094CB217CCA4900D350F1 /* PassMarkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassMarkerView.swift; sourceTree = "<group>"; };
 		CFD094CD217CD38100D350F1 /* Passes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Passes.json; path = PassIT/Passes.json; sourceTree = SOURCE_ROOT; };
@@ -46,6 +46,8 @@
 		CFDFF7162173A18E00205BDF /* MapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
 		CFDFF7192173A1C500205BDF /* PassTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassTableViewController.swift; sourceTree = "<group>"; };
 		CFDFF71A2173A1C500205BDF /* PassTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PassTableViewController.xib; sourceTree = "<group>"; };
+		CFE08ACC2189A45300A86089 /* PassTableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassTableDataSource.swift; sourceTree = "<group>"; };
+		CFE08AD12189ACBB00A86089 /* PassTableDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassTableDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,13 +102,13 @@
 		CFDFF7132173A14B00205BDF /* Elements */ = {
 			isa = PBXGroup;
 			children = (
+				CFE08AD02189AC6500A86089 /* DetailAccessoryView */,
 				CF43347D2187083200473B97 /* Cells */,
 				CFDFF7142173A15A00205BDF /* View Controllers */,
 				CFD36AFB217A19090025BB34 /* Pass.swift */,
 				CFD094C9217CC8F600D350F1 /* JsonFile.swift */,
 				CFD094CB217CCA4900D350F1 /* PassMarkerView.swift */,
 				CF354634217E12D300759A84 /* Extensions.swift */,
-				CF67C2612187198E00A2B720 /* PassSection.swift */,
 			);
 			path = Elements;
 			sourceTree = "<group>";
@@ -114,14 +116,39 @@
 		CFDFF7142173A15A00205BDF /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				CFE08ACE2189ABFE00A86089 /* Map */,
+				CFE08ACF2189AC1300A86089 /* PassTable */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		CFE08ACE2189ABFE00A86089 /* Map */ = {
+			isa = PBXGroup;
+			children = (
 				CFDFF7152173A18E00205BDF /* MapViewController.swift */,
 				CFDFF7162173A18E00205BDF /* MapViewController.xib */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		CFE08ACF2189AC1300A86089 /* PassTable */ = {
+			isa = PBXGroup;
+			children = (
 				CFDFF7192173A1C500205BDF /* PassTableViewController.swift */,
 				CFDFF71A2173A1C500205BDF /* PassTableViewController.xib */,
+				CFE08ACC2189A45300A86089 /* PassTableDataSource.swift */,
+				CFE08AD12189ACBB00A86089 /* PassTableDelegate.swift */,
+			);
+			path = PassTable;
+			sourceTree = "<group>";
+		};
+		CFE08AD02189AC6500A86089 /* DetailAccessoryView */ = {
+			isa = PBXGroup;
+			children = (
 				CF034B462181C259003ED8D0 /* DetailAccessoryView.swift */,
 				CF034B482181C26C003ED8D0 /* DetailAccessoryView.xib */,
 			);
-			path = "View Controllers";
+			path = DetailAccessoryView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,13 +226,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFE08AD22189ACBB00A86089 /* PassTableDelegate.swift in Sources */,
 				CF034B472181C259003ED8D0 /* DetailAccessoryView.swift in Sources */,
+				CFE08ACD2189A45300A86089 /* PassTableDataSource.swift in Sources */,
 				CFD36AFC217A19090025BB34 /* Pass.swift in Sources */,
 				CFD094CC217CCA4900D350F1 /* PassMarkerView.swift in Sources */,
 				CF1722742173448F009E3577 /* AppDelegate.swift in Sources */,
 				CFDFF71B2173A1C500205BDF /* PassTableViewController.swift in Sources */,
 				CF43347B2187082600473B97 /* PassCell.swift in Sources */,
-				CF67C2622187198E00A2B720 /* PassSection.swift in Sources */,
 				CFDFF7172173A18E00205BDF /* MapViewController.swift in Sources */,
 				CFD094CA217CC8F600D350F1 /* JsonFile.swift in Sources */,
 				CF354635217E12D300759A84 /* Extensions.swift in Sources */,
