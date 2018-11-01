@@ -19,6 +19,12 @@
 		CFD094CC217CCA4900D350F1 /* PassMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD094CB217CCA4900D350F1 /* PassMarkerView.swift */; };
 		CFD094CE217CD38100D350F1 /* Passes.json in Resources */ = {isa = PBXBuildFile; fileRef = CFD094CD217CD38100D350F1 /* Passes.json */; };
 		CFD36AFC217A19090025BB34 /* Pass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD36AFB217A19090025BB34 /* Pass.swift */; };
+		CFD5B7E7218B4A230047C521 /* CellRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD5B7E6218B4A230047C521 /* CellRepresentable.swift */; };
+		CFD5B7E9218B4D470047C521 /* viewModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD5B7E8218B4D470047C521 /* viewModels.swift */; };
+		CFD5B7EC218B4F5F0047C521 /* DataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD5B7EA218B4F5F0047C521 /* DataCell.swift */; };
+		CFD5B7ED218B4F5F0047C521 /* DataCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFD5B7EB218B4F5F0047C521 /* DataCell.xib */; };
+		CFD5B7F0218B51DD0047C521 /* MapCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD5B7EE218B51DD0047C521 /* MapCell.swift */; };
+		CFD5B7F1218B51DD0047C521 /* MapCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFD5B7EF218B51DD0047C521 /* MapCell.xib */; };
 		CFDFF7172173A18E00205BDF /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDFF7152173A18E00205BDF /* MapViewController.swift */; };
 		CFDFF7182173A18E00205BDF /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFDFF7162173A18E00205BDF /* MapViewController.xib */; };
 		CFDFF71B2173A1C500205BDF /* PassTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDFF7192173A1C500205BDF /* PassTableViewController.swift */; };
@@ -42,6 +48,12 @@
 		CFD094CB217CCA4900D350F1 /* PassMarkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassMarkerView.swift; sourceTree = "<group>"; };
 		CFD094CD217CD38100D350F1 /* Passes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Passes.json; path = PassIT/Passes.json; sourceTree = SOURCE_ROOT; };
 		CFD36AFB217A19090025BB34 /* Pass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pass.swift; sourceTree = "<group>"; };
+		CFD5B7E6218B4A230047C521 /* CellRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellRepresentable.swift; sourceTree = "<group>"; };
+		CFD5B7E8218B4D470047C521 /* viewModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewModels.swift; sourceTree = "<group>"; };
+		CFD5B7EA218B4F5F0047C521 /* DataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCell.swift; sourceTree = "<group>"; };
+		CFD5B7EB218B4F5F0047C521 /* DataCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DataCell.xib; sourceTree = "<group>"; };
+		CFD5B7EE218B51DD0047C521 /* MapCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCell.swift; sourceTree = "<group>"; };
+		CFD5B7EF218B51DD0047C521 /* MapCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapCell.xib; sourceTree = "<group>"; };
 		CFDFF7152173A18E00205BDF /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		CFDFF7162173A18E00205BDF /* MapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
 		CFDFF7192173A1C500205BDF /* PassTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassTableViewController.swift; sourceTree = "<group>"; };
@@ -95,6 +107,10 @@
 			children = (
 				CF4334792187082600473B97 /* PassCell.swift */,
 				CF43347A2187082600473B97 /* PassCell.xib */,
+				CFD5B7EA218B4F5F0047C521 /* DataCell.swift */,
+				CFD5B7EB218B4F5F0047C521 /* DataCell.xib */,
+				CFD5B7EE218B51DD0047C521 /* MapCell.swift */,
+				CFD5B7EF218B51DD0047C521 /* MapCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -109,6 +125,8 @@
 				CFD094C9217CC8F600D350F1 /* JsonFile.swift */,
 				CFD094CB217CCA4900D350F1 /* PassMarkerView.swift */,
 				CF354634217E12D300759A84 /* Extensions.swift */,
+				CFD5B7E6218B4A230047C521 /* CellRepresentable.swift */,
+				CFD5B7E8218B4D470047C521 /* viewModels.swift */,
 			);
 			path = Elements;
 			sourceTree = "<group>";
@@ -216,6 +234,8 @@
 				CFD094CE217CD38100D350F1 /* Passes.json in Resources */,
 				CFDFF71C2173A1C500205BDF /* PassTableViewController.xib in Resources */,
 				CF17227B21734490009E3577 /* Assets.xcassets in Resources */,
+				CFD5B7ED218B4F5F0047C521 /* DataCell.xib in Resources */,
+				CFD5B7F1218B51DD0047C521 /* MapCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,14 +249,18 @@
 				CFE08AD22189ACBB00A86089 /* PassTableDelegate.swift in Sources */,
 				CF034B472181C259003ED8D0 /* DetailAccessoryView.swift in Sources */,
 				CFE08ACD2189A45300A86089 /* PassTableDataSource.swift in Sources */,
+				CFD5B7EC218B4F5F0047C521 /* DataCell.swift in Sources */,
 				CFD36AFC217A19090025BB34 /* Pass.swift in Sources */,
 				CFD094CC217CCA4900D350F1 /* PassMarkerView.swift in Sources */,
 				CF1722742173448F009E3577 /* AppDelegate.swift in Sources */,
 				CFDFF71B2173A1C500205BDF /* PassTableViewController.swift in Sources */,
+				CFD5B7E7218B4A230047C521 /* CellRepresentable.swift in Sources */,
 				CF43347B2187082600473B97 /* PassCell.swift in Sources */,
 				CFDFF7172173A18E00205BDF /* MapViewController.swift in Sources */,
 				CFD094CA217CC8F600D350F1 /* JsonFile.swift in Sources */,
+				CFD5B7E9218B4D470047C521 /* viewModels.swift in Sources */,
 				CF354635217E12D300759A84 /* Extensions.swift in Sources */,
+				CFD5B7F0218B51DD0047C521 /* MapCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
