@@ -1,6 +1,8 @@
 import UIKit
 
 class PassTableDelegate: NSObject, UITableViewDelegate {
+    var cellSelectionHandler: ((UIViewController) -> ())?
+    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return CGFloat(50)
     }
@@ -9,8 +11,10 @@ class PassTableDelegate: NSObject, UITableViewDelegate {
         defer {
             tableView.deselectRow(at: indexPath, animated: true)
         }
-        if let cell = tableView.cellForRow(at: indexPath) as? PassCell, let pass = cell.pass {
-            print("Selected cell: \(pass.id) - \(pass.name)")
+        if let cell = tableView.cellForRow(at: indexPath) as? PassCell,
+            let pass = cell.pass,
+            let handler = cellSelectionHandler {
+            
         }
     }
 }
