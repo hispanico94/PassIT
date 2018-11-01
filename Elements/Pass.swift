@@ -115,3 +115,11 @@ extension Pass: Codable {
         try addressContainer.encode(address.region, forKey: .region)
     }
 }
+
+// MARK: -
+
+extension Pass {
+//    func getDataForDisplayInTableView() -> [Section] {
+//
+//    }
+}
