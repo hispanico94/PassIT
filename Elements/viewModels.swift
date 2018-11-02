@@ -28,11 +28,8 @@ extension DataRow: CellRepresentable {
 extension MapRow: CellRepresentable {
     func makeTableViewCell(for tableView: UITableView) -> UITableViewCell {
         let dequedCell = tableView.dequeueReusableCell(withIdentifier: MapCell.defaultIdentifier) as? MapCell
-        let cell = dequedCell ?? DataCell.getCell()
-        
-        // TODO: set the cell
-        
-        return cell
+        let cell = dequedCell ?? MapCell.getCell()
+        return cell.set(with: coordinates)
     }
     
     
