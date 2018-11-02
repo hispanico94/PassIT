@@ -12,6 +12,9 @@
 		CF1722742173448F009E3577 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1722732173448F009E3577 /* AppDelegate.swift */; };
 		CF17227B21734490009E3577 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF17227A21734490009E3577 /* Assets.xcassets */; };
 		CF17227E21734490009E3577 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF17227C21734490009E3577 /* LaunchScreen.storyboard */; };
+		CF348A38218C53D6007A1F6F /* PassDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF348A36218C53D6007A1F6F /* PassDetailsViewController.swift */; };
+		CF348A39218C53D6007A1F6F /* PassDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF348A37218C53D6007A1F6F /* PassDetailsViewController.xib */; };
+		CF348A3B218C627A007A1F6F /* PassDetailsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF348A3A218C627A007A1F6F /* PassDetailsDataSource.swift */; };
 		CF354635217E12D300759A84 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF354634217E12D300759A84 /* Extensions.swift */; };
 		CF43347B2187082600473B97 /* PassCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4334792187082600473B97 /* PassCell.swift */; };
 		CF43347C2187082600473B97 /* PassCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF43347A2187082600473B97 /* PassCell.xib */; };
@@ -41,6 +44,9 @@
 		CF17227A21734490009E3577 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CF17227D21734490009E3577 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CF17227F21734490009E3577 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CF348A36218C53D6007A1F6F /* PassDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassDetailsViewController.swift; sourceTree = "<group>"; };
+		CF348A37218C53D6007A1F6F /* PassDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PassDetailsViewController.xib; sourceTree = "<group>"; };
+		CF348A3A218C627A007A1F6F /* PassDetailsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassDetailsDataSource.swift; sourceTree = "<group>"; };
 		CF354634217E12D300759A84 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		CF4334792187082600473B97 /* PassCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassCell.swift; sourceTree = "<group>"; };
 		CF43347A2187082600473B97 /* PassCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PassCell.xib; sourceTree = "<group>"; };
@@ -102,6 +108,16 @@
 			path = PassIT;
 			sourceTree = "<group>";
 		};
+		CF348A35218C53A4007A1F6F /* PassDetails */ = {
+			isa = PBXGroup;
+			children = (
+				CF348A36218C53D6007A1F6F /* PassDetailsViewController.swift */,
+				CF348A37218C53D6007A1F6F /* PassDetailsViewController.xib */,
+				CF348A3A218C627A007A1F6F /* PassDetailsDataSource.swift */,
+			);
+			path = PassDetails;
+			sourceTree = "<group>";
+		};
 		CF43347D2187083200473B97 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -136,6 +152,7 @@
 			children = (
 				CFE08ACE2189ABFE00A86089 /* Map */,
 				CFE08ACF2189AC1300A86089 /* PassTable */,
+				CF348A35218C53A4007A1F6F /* PassDetails */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -229,6 +246,7 @@
 			files = (
 				CF17227E21734490009E3577 /* LaunchScreen.storyboard in Resources */,
 				CF43347C2187082600473B97 /* PassCell.xib in Resources */,
+				CF348A39218C53D6007A1F6F /* PassDetailsViewController.xib in Resources */,
 				CFDFF7182173A18E00205BDF /* MapViewController.xib in Resources */,
 				CF034B492181C26C003ED8D0 /* DetailAccessoryView.xib in Resources */,
 				CFD094CE217CD38100D350F1 /* Passes.json in Resources */,
@@ -252,12 +270,14 @@
 				CFD5B7EC218B4F5F0047C521 /* DataCell.swift in Sources */,
 				CFD36AFC217A19090025BB34 /* Pass.swift in Sources */,
 				CFD094CC217CCA4900D350F1 /* PassMarkerView.swift in Sources */,
+				CF348A38218C53D6007A1F6F /* PassDetailsViewController.swift in Sources */,
 				CF1722742173448F009E3577 /* AppDelegate.swift in Sources */,
 				CFDFF71B2173A1C500205BDF /* PassTableViewController.swift in Sources */,
 				CFD5B7E7218B4A230047C521 /* CellRepresentable.swift in Sources */,
 				CF43347B2187082600473B97 /* PassCell.swift in Sources */,
 				CFDFF7172173A18E00205BDF /* MapViewController.swift in Sources */,
 				CFD094CA217CC8F600D350F1 /* JsonFile.swift in Sources */,
+				CF348A3B218C627A007A1F6F /* PassDetailsDataSource.swift in Sources */,
 				CFD5B7E9218B4D470047C521 /* viewModels.swift in Sources */,
 				CF354635217E12D300759A84 /* Extensions.swift in Sources */,
 				CFD5B7F0218B51DD0047C521 /* MapCell.swift in Sources */,
