@@ -21,10 +21,7 @@ extension DataRow: CellRepresentable {
     func makeTableViewCell(for tableView: UITableView) -> UITableViewCell {
         let dequedCell = tableView.dequeueReusableCell(withIdentifier: DataCell.defaultIdentifier) as? DataCell
         let cell = dequedCell ?? DataCell.getCell()
-        
-        // TODO: set the cell
-        
-        return cell
+        return cell.set(with: self)
     }
 }
 
