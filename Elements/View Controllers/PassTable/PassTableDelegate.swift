@@ -14,7 +14,8 @@ class PassTableDelegate: NSObject, UITableViewDelegate {
         if let cell = tableView.cellForRow(at: indexPath) as? PassCell,
             let pass = cell.pass,
             let handler = cellSelectionHandler {
-            
+            let passDetailsViewController = PassDetailsViewController(pass: pass)
+            handler(passDetailsViewController)
         }
     }
 }

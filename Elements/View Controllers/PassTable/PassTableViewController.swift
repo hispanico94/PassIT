@@ -2,19 +2,19 @@ import UIKit
 
 class PassTableViewController: UITableViewController {
     
-    let dataSource: PassTableDataSource
-    let delegate: PassTableDelegate
+    let tableViewDataSource: PassTableDataSource
+    let tableViewDelegate: PassTableDelegate
     
     let passes: [Pass]
     
     init(passes: [Pass]) {
         self.passes = passes
-        self.dataSource = PassTableDataSource(passes: passes)
-        self.delegate = PassTableDelegate()
+        self.tableViewDataSource = PassTableDataSource(passes: passes)
+        self.tableViewDelegate = PassTableDelegate()
         
         super.init(nibName: nil, bundle: nil)
         
-        self.delegate.cellSelectionHandler = { [weak self] viewController in
+        self.tableViewDelegate.cellSelectionHandler = { [weak self] viewController in
             self?.navigationController?.pushViewController(viewController, animated: true)
         }
     }
@@ -26,8 +26,10 @@ class PassTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.dataSource = dataSource
-        tableView.delegate = delegate
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: nil, action: nil)
+        
+        tableView.dataSource = tableViewDataSource
+        tableView.delegate = tableViewDelegate
         
         tableView.register(UINib(nibName: "PassCell", bundle: nil), forCellReuseIdentifier: PassCell.defaultIdentifier)
     }
