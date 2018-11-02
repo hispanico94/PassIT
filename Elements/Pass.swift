@@ -118,8 +118,54 @@ extension Pass: Codable {
 
 // MARK: -
 
-extension Pass {
-//    func getDataForDisplayInTableView() -> [Section] {
-//
-//    }
+extension Address: CustomStringConvertible {
+    var description: String {
+        return "\(road), \(municipality) (\(province))"
+    }
 }
+
+extension PassType: CustomStringConvertible {
+    var description: String {
+        switch self {
+        case .pass:
+            return "Pass"
+        case .peak:
+            return "Mountaintop road"
+        }
+    }
+}
+
+extension Pass {
+    func getDataForDisplayInTableView() -> [Section] {
+        var rows = [CellRepresentable]()
+        
+        if let elevation = elevation {
+            let elevationRow = DataRow(key: "Elevation:", value: elevation.integerDescription)
+            rows.append(elevationRow)
+        }
+        
+        if let type = type {
+            let typeRow = DataRow(key: "Type:", value: type.description)
+            rows.append(typeRow)
+        }
+        
+        let addressRow = DataRow(key: "Address:", value: address.description)
+        rows.append(addressRow)
+        
+        let section = Section(title: name, rows: rows)
+        
+        return [section]
+    }
+}
+
+/*
+ struct Section {
+ let title: String
+ let rows: [CellRepresentable]
+ }
+ 
+ struct DataRow {
+ let key: String
+ let value: String
+ }
+ */
