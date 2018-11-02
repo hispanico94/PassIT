@@ -9,6 +9,8 @@ class PassDetailsViewController: UITableViewController {
         self.passData = pass.getDataForDisplayInTableView()
         self.tableViewDataSource = PassDetailsDataSource(passData: self.passData)
         super.init(nibName: nil, bundle: nil)
+        
+        self.title = pass.name
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -17,6 +19,8 @@ class PassDetailsViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         
         tableView.estimatedRowHeight = CGFloat(200)
         tableView.rowHeight = UITableView.automaticDimension
