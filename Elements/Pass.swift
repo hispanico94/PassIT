@@ -137,24 +137,31 @@ extension PassType: CustomStringConvertible {
 
 extension Pass {
     func getDataForDisplayInTableView() -> [Section] {
+        let infoSection = getInformationsSection()
+        let mapSection = getMapSection()
+        return [infoSection, mapSection]
+    }
+    
+    private func getInformationsSection() -> Section {
         var rows = [CellRepresentable]()
         
         if let elevation = elevation {
             let elevationRow = DataRow(key: "Elevation:", value: elevation.integerDescription)
             rows.append(elevationRow)
         }
-        
         if let type = type {
             let typeRow = DataRow(key: "Type:", value: type.description)
             rows.append(typeRow)
         }
-        
         let addressRow = DataRow(key: "Address:", value: address.description)
         rows.append(addressRow)
         
-        let section = Section(title: name, rows: rows)
-        
-        return [section]
+        return Section(title: "Informations", rows: rows)
+    }
+    
+    private func getMapSection() -> Section{
+        let mapRow = MapRow(coordinates: coordinates)
+        return Section(title: "Map", rows: [mapRow])
     }
 }
 
