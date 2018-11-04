@@ -20,6 +20,7 @@
                 <subviews>
                     <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Fkt-JT-osT">
                         <rect key="frame" x="8" y="8" width="304" height="304"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="height" secondItem="Fkt-JT-osT" secondAttribute="width" id="tp9-o9-RYG"/>
                         </constraints>
