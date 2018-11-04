@@ -3830,11 +3830,11 @@
                 "region": "Liguria",
                 "province": "SV",
                 "municipality": "Altare",
-                "road": "SS29"
+                "road": "SP29"
             },
             "id": 241,
             "elevation": 459,
-            "name": "Bocchetta di Altare - Colle di Cadibona",
+            "name": "Bocchetta di Altare",
             "type": "pass",
             "coordinates": {
                 "longitude": 8.358107,
@@ -6975,6 +6975,22 @@
             "coordinates": {
                 "longitude": 14.580977,
                 "latitude": 41.384267
+            }
+        },
+        {
+            "address": {
+                "region": "Umbria",
+                "province": "PG",
+                "municipality": "Cascia",
+                "road": "SR471"
+            },
+            "id": 438,
+            "elevation": 938,
+            "name": "Forca Rua la Cama",
+            "type": "pass",
+            "coordinates": {
+                "longitude": 12.975657,
+                "latitude": 42.696740
             }
         }
     ]
