@@ -13,13 +13,15 @@ class MapCell: UITableViewCell {
             mapView.showsUserLocation = true
             let pinchRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(userDidPinch(_:)))
             mapView.addGestureRecognizer(pinchRecognizer)
+            
+            mapView.register(PassMarkerViewMapCell.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
         }
     }
     
     private let initialRegionRadius: CLLocationDistance = 10000
     private var regionDisplayed: MKCoordinateRegion!
     
-    private var coordinates: CLLocationCoordinate2D! {
+    private var pass: Pass! {
         didSet {
             setMap()
         }
@@ -29,15 +31,18 @@ class MapCell: UITableViewCell {
         return UINib(nibName: "MapCell", bundle: nil).instantiate(withOwner: nil, options: nil).first as! MapCell
     }
     
-    func set(with coordinates: CLLocationCoordinate2D) -> MapCell {
+    func set(with pass: Pass) -> MapCell {
         self.selectionStyle = .none
-        self.coordinates = coordinates
+        self.pass = pass
         return self
     }
     
     private func setMap() {
-        regionDisplayed = MKCoordinateRegion(center: coordinates, latitudinalMeters: initialRegionRadius, longitudinalMeters: initialRegionRadius)
+        regionDisplayed = MKCoordinateRegion(center: pass.coordinates, latitudinalMeters: initialRegionRadius, longitudinalMeters: initialRegionRadius)
         mapView.setRegion(regionDisplayed, animated: true)
+        
+        let annotation = PassAnnotation(pass: pass)
+        mapView.addAnnotation(annotation)
     }
     
     @objc func userDidPinch(_ sender: UIGestureRecognizer) {
@@ -47,7 +52,7 @@ class MapCell: UITableViewCell {
         let longitudeDelta = regionDisplayed.span.longitudeDelta / CLLocationDegrees(sender.scale)
         
         let newSpan = MKCoordinateSpan(latitudeDelta: latitudeDelta, longitudeDelta: longitudeDelta)
-        let newRegion = MKCoordinateRegion(center: coordinates, span: newSpan)
+        let newRegion = MKCoordinateRegion(center: pass.coordinates, span: newSpan)
         
         mapView.setRegion(newRegion, animated: false)
         

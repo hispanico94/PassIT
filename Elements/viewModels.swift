@@ -12,7 +12,7 @@ struct DataRow {
 }
 
 struct MapRow {
-    let coordinates: CLLocationCoordinate2D
+    let pass: Pass
 }
 
 // MARK: - Conforming to CellRepresentable
@@ -29,7 +29,7 @@ extension MapRow: CellRepresentable {
     func makeTableViewCell(for tableView: UITableView) -> UITableViewCell {
         let dequedCell = tableView.dequeueReusableCell(withIdentifier: MapCell.defaultIdentifier) as? MapCell
         let cell = dequedCell ?? MapCell.getCell()
-        return cell.set(with: coordinates)
+        return cell.set(with: pass)
     }
     
     

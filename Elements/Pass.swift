@@ -160,7 +160,7 @@ extension Pass {
     }
     
     private func getMapSection() -> Section{
-        let mapRow = MapRow(coordinates: coordinates)
+        let mapRow = MapRow(pass: self)
         return Section(title: "Map", rows: [mapRow])
     }
 }

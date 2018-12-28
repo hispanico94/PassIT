@@ -92,3 +92,20 @@ class PassMarkerView: MKMarkerAnnotationView {
     }
 }
 
+
+//TODO: change name of this class
+class PassMarkerViewMapCell: MKMarkerAnnotationView {
+    override var annotation: MKAnnotation? {
+        willSet {
+            guard let pass = newValue as? PassAnnotation else { return }
+            
+            markerTintColor = pass.color
+            
+            if let icon = pass.icon {
+                glyphImage = UIImage(named: icon)
+            }
+            
+            isEnabled = false
+        }
+    }
+}
