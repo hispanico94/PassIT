@@ -19,6 +19,7 @@ class DataCell: UITableViewCell {
     
     func set(with dataRow: DataRow) -> DataCell {
         self.dataRow = dataRow
+        self.selectionStyle = .none
         return self
     }
 }
