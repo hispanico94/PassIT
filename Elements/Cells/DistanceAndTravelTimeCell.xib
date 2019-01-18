@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="DistanceAndTravelTimeCell" customModule="PassIT" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="IAg-Wb-aYp">
+                        <rect key="frame" x="16" y="11.5" width="242" height="20.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="distanceLabel" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t24-oJ-Y9M">
+                                <rect key="frame" x="0.0" y="0.0" width="107" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="timeLabel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ry1-s0-aTd">
+                                <rect key="frame" x="141" y="0.0" width="101" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="t24-oJ-Y9M" firstAttribute="trailing" secondItem="IAg-Wb-aYp" secondAttribute="centerX" constant="-20" id="XYP-WP-aTf"/>
+                            <constraint firstItem="Ry1-s0-aTd" firstAttribute="leading" secondItem="IAg-Wb-aYp" secondAttribute="centerX" constant="20" id="tqP-B9-dan"/>
+                        </constraints>
+                    </stackView>
+                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SSw-mN-3IX">
+                        <rect key="frame" x="274" y="8" width="30" height="27.5"/>
+                        <connections>
+                            <action selector="userDidTapMapsButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="JYP-nc-wAR"/>
+                        </connections>
+                    </button>
+                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="vaX-Yq-oRB">
+                        <rect key="frame" x="150" y="12" width="20" height="20"/>
+                    </activityIndicatorView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="errorMessageLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MUs-bo-dFA">
+                        <rect key="frame" x="32" y="11.5" width="272" height="20.5"/>
+                        <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="vaX-Yq-oRB" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="0FP-Oa-MmJ"/>
+                    <constraint firstItem="IAg-Wb-aYp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="1Aq-sl-PAT"/>
+                    <constraint firstItem="SSw-mN-3IX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="3YS-7P-hp4"/>
+                    <constraint firstItem="SSw-mN-3IX" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="5ff-ES-Ieb"/>
+                    <constraint firstItem="IAg-Wb-aYp" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Aon-eQ-HoJ"/>
+                    <constraint firstAttribute="trailing" secondItem="SSw-mN-3IX" secondAttribute="trailing" constant="16" id="FZw-2S-zzl"/>
+                    <constraint firstAttribute="trailing" secondItem="MUs-bo-dFA" secondAttribute="trailing" constant="16" id="ZQU-lG-oUa"/>
+                    <constraint firstItem="MUs-bo-dFA" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="16" id="goe-le-bwO"/>
+                    <constraint firstAttribute="bottom" secondItem="SSw-mN-3IX" secondAttribute="bottom" constant="8" id="hd0-Il-NfA"/>
+                    <constraint firstItem="vaX-Yq-oRB" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="jBi-Lu-BdL"/>
+                    <constraint firstItem="SSw-mN-3IX" firstAttribute="leading" secondItem="IAg-Wb-aYp" secondAttribute="trailing" constant="16" id="nkv-Uz-XV9"/>
+                    <constraint firstItem="MUs-bo-dFA" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="tZT-bX-10l"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="activityIndicator" destination="vaX-Yq-oRB" id="yaE-bB-O57"/>
+                <outlet property="distanceLabel" destination="t24-oJ-Y9M" id="TK7-Cb-3D3"/>
+                <outlet property="errorMessageLabel" destination="MUs-bo-dFA" id="TmH-IJ-nlN"/>
+                <outlet property="mapsButton" destination="SSw-mN-3IX" id="ptK-4B-lhk"/>
+                <outlet property="timeLabel" destination="Ry1-s0-aTd" id="bSr-qC-F0L"/>
+            </connections>
+            <point key="canvasLocation" x="-331.19999999999999" y="92.653673163418304"/>
+        </tableViewCell>
+    </objects>
+</document>
