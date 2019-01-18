@@ -15,6 +15,11 @@ struct MapRow {
     let pass: Pass
 }
 
+struct DistanceAndTravelTimeRow {
+    let pass: Pass
+    let locationProvider: LocationProvider
+}
+
 // MARK: - Conforming to CellRepresentable
 
 extension DataRow: CellRepresentable {
@@ -31,6 +36,12 @@ extension MapRow: CellRepresentable {
         let cell = dequedCell ?? MapCell.getCell()
         return cell.set(with: pass)
     }
-    
-    
+}
+
+extension DistanceAndTravelTimeRow: CellRepresentable {
+    func makeTableViewCell(for tableView: UITableView) -> UITableViewCell {
+        let dequedCell = tableView.dequeueReusableCell(withIdentifier: DistanceAndTravelTimeCell.defaultIdentifier) as? DistanceAndTravelTimeCell
+        let cell = dequedCell ?? DistanceAndTravelTimeCell.getCell()
+        return cell.set(with: pass, locationProvider: locationProvider)
+    }
 }

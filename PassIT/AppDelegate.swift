@@ -18,9 +18,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let passes = jsonFile.passes
         
-        let mapViewController = MapViewController(passes: passes)
+        let userLocation = UserLocation()
+        
+        let mapViewController = MapViewController(passes: passes, locationProvider: userLocation)
         mapViewController.tabBarItem = UITabBarItem(title: "Map", image: UIImage(named: "map_tab_bar_icon"), tag: 0)
-        let passTableViewController = PassTableViewController(passes: passes)
+        let passTableViewController = PassTableViewController(passes: passes, locationProvider: userLocation)
         passTableViewController.title = "Passes and Peaks"
         passTableViewController.tabBarItem = UITabBarItem(title: "List", image: UIImage(named: "list_tab_bar_icon"), tag: 1)
         let navigationController = UINavigationController(rootViewController: passTableViewController)

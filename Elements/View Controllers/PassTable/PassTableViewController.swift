@@ -7,10 +7,10 @@ class PassTableViewController: UITableViewController {
     
     let passes: [Pass]
     
-    init(passes: [Pass]) {
+    init(passes: [Pass], locationProvider: LocationProvider) {
         self.passes = passes
         self.tableViewDataSource = PassTableDataSource(passes: passes)
-        self.tableViewDelegate = PassTableDelegate()
+        self.tableViewDelegate = PassTableDelegate(locationProvider: locationProvider)
         
         super.init(nibName: nil, bundle: nil)
         
@@ -32,5 +32,10 @@ class PassTableViewController: UITableViewController {
         tableView.delegate = tableViewDelegate
         
         tableView.register(UINib(nibName: "PassCell", bundle: nil), forCellReuseIdentifier: PassCell.defaultIdentifier)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
 }

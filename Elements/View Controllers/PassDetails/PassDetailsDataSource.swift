@@ -3,8 +3,8 @@ import UIKit
 class PassDetailsDataSource: NSObject {
     private let passData: [Section]
     
-    init(passData: [Section]) {
-        self.passData = passData
+    init(pass: Pass, locationProvider: LocationProvider) {
+        self.passData = pass.getDataForDisplayInTableView(locationProvider: locationProvider)
         super.init()
     }
 }

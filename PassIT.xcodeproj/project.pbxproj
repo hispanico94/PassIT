@@ -18,6 +18,9 @@
 		CF354635217E12D300759A84 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF354634217E12D300759A84 /* Extensions.swift */; };
 		CF43347B2187082600473B97 /* PassCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4334792187082600473B97 /* PassCell.swift */; };
 		CF43347C2187082600473B97 /* PassCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF43347A2187082600473B97 /* PassCell.xib */; };
+		CF4E3FA321E0B4050019EBC0 /* DistanceAndTravelTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4E3FA121E0B4050019EBC0 /* DistanceAndTravelTimeCell.swift */; };
+		CF4E3FA421E0B4050019EBC0 /* DistanceAndTravelTimeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF4E3FA221E0B4050019EBC0 /* DistanceAndTravelTimeCell.xib */; };
+		CF88578A21D6264400F96511 /* UserLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF88578921D6264400F96511 /* UserLocation.swift */; };
 		CFD094CA217CC8F600D350F1 /* JsonFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD094C9217CC8F600D350F1 /* JsonFile.swift */; };
 		CFD094CC217CCA4900D350F1 /* PassMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD094CB217CCA4900D350F1 /* PassMarkerView.swift */; };
 		CFD094CE217CD38100D350F1 /* Passes.json in Resources */ = {isa = PBXBuildFile; fileRef = CFD094CD217CD38100D350F1 /* Passes.json */; };
@@ -50,6 +53,9 @@
 		CF354634217E12D300759A84 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		CF4334792187082600473B97 /* PassCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassCell.swift; sourceTree = "<group>"; };
 		CF43347A2187082600473B97 /* PassCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PassCell.xib; sourceTree = "<group>"; };
+		CF4E3FA121E0B4050019EBC0 /* DistanceAndTravelTimeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceAndTravelTimeCell.swift; sourceTree = "<group>"; };
+		CF4E3FA221E0B4050019EBC0 /* DistanceAndTravelTimeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DistanceAndTravelTimeCell.xib; sourceTree = "<group>"; };
+		CF88578921D6264400F96511 /* UserLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocation.swift; sourceTree = "<group>"; };
 		CFD094C9217CC8F600D350F1 /* JsonFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonFile.swift; sourceTree = "<group>"; };
 		CFD094CB217CCA4900D350F1 /* PassMarkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassMarkerView.swift; sourceTree = "<group>"; };
 		CFD094CD217CD38100D350F1 /* Passes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Passes.json; path = PassIT/Passes.json; sourceTree = SOURCE_ROOT; };
@@ -127,6 +133,8 @@
 				CFD5B7EB218B4F5F0047C521 /* DataCell.xib */,
 				CFD5B7EE218B51DD0047C521 /* MapCell.swift */,
 				CFD5B7EF218B51DD0047C521 /* MapCell.xib */,
+				CF4E3FA121E0B4050019EBC0 /* DistanceAndTravelTimeCell.swift */,
+				CF4E3FA221E0B4050019EBC0 /* DistanceAndTravelTimeCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -143,6 +151,7 @@
 				CF354634217E12D300759A84 /* Extensions.swift */,
 				CFD5B7E6218B4A230047C521 /* CellRepresentable.swift */,
 				CFD5B7E8218B4D470047C521 /* viewModels.swift */,
+				CF88578921D6264400F96511 /* UserLocation.swift */,
 			);
 			path = Elements;
 			sourceTree = "<group>";
@@ -246,6 +255,7 @@
 			files = (
 				CF17227E21734490009E3577 /* LaunchScreen.storyboard in Resources */,
 				CF43347C2187082600473B97 /* PassCell.xib in Resources */,
+				CF4E3FA421E0B4050019EBC0 /* DistanceAndTravelTimeCell.xib in Resources */,
 				CF348A39218C53D6007A1F6F /* PassDetailsViewController.xib in Resources */,
 				CFDFF7182173A18E00205BDF /* MapViewController.xib in Resources */,
 				CF034B492181C26C003ED8D0 /* DetailAccessoryView.xib in Resources */,
@@ -267,6 +277,7 @@
 				CFE08AD22189ACBB00A86089 /* PassTableDelegate.swift in Sources */,
 				CF034B472181C259003ED8D0 /* DetailAccessoryView.swift in Sources */,
 				CFE08ACD2189A45300A86089 /* PassTableDataSource.swift in Sources */,
+				CF88578A21D6264400F96511 /* UserLocation.swift in Sources */,
 				CFD5B7EC218B4F5F0047C521 /* DataCell.swift in Sources */,
 				CFD36AFC217A19090025BB34 /* Pass.swift in Sources */,
 				CFD094CC217CCA4900D350F1 /* PassMarkerView.swift in Sources */,
@@ -281,6 +292,7 @@
 				CFD5B7E9218B4D470047C521 /* viewModels.swift in Sources */,
 				CF354635217E12D300759A84 /* Extensions.swift in Sources */,
 				CFD5B7F0218B51DD0047C521 /* MapCell.swift in Sources */,
+				CF4E3FA321E0B4050019EBC0 /* DistanceAndTravelTimeCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
