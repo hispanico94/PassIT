@@ -6,13 +6,11 @@ class DistanceAndTravelTimeCell: UITableViewCell {
     
     @IBOutlet weak var distanceLabel: UILabel! {
         didSet {
-            distanceLabel.text = ""
             distanceLabel.isHidden = true
         }
     }
     @IBOutlet weak var timeLabel: UILabel! {
         didSet {
-            timeLabel.text = ""
             timeLabel.isHidden = true
         }
     }
@@ -131,8 +129,14 @@ class DistanceAndTravelTimeCell: UITableViewCell {
     }
     
     @IBAction func userDidTapMapsButton(_ sender: UIButton) {
-        // TODO: add link to open Maps with directions
-        print("button tapped")
+        let mapItem = MKMapItem(placemark: MKPlacemark(coordinate: pass.coordinates))
+        
+        let launchOptions: [String: Any] = [
+            MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving,
+            MKLaunchOptionsMapTypeKey: NSNumber(value: MKMapType.standard.rawValue)
+        ]
+        
+        mapItem.openInMaps(launchOptions: launchOptions)
     }
     
 }
