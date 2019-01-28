@@ -16,6 +16,7 @@
 		CF348A39218C53D6007A1F6F /* PassDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF348A37218C53D6007A1F6F /* PassDetailsViewController.xib */; };
 		CF348A3B218C627A007A1F6F /* PassDetailsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF348A3A218C627A007A1F6F /* PassDetailsDataSource.swift */; };
 		CF354635217E12D300759A84 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF354634217E12D300759A84 /* Extensions.swift */; };
+		CF3AABB421F7621500A626D2 /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3AABB321F7621500A626D2 /* DependencyContainer.swift */; };
 		CF43347B2187082600473B97 /* PassCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4334792187082600473B97 /* PassCell.swift */; };
 		CF43347C2187082600473B97 /* PassCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF43347A2187082600473B97 /* PassCell.xib */; };
 		CF4E3FA321E0B4050019EBC0 /* DistanceAndTravelTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4E3FA121E0B4050019EBC0 /* DistanceAndTravelTimeCell.swift */; };
@@ -51,6 +52,7 @@
 		CF348A37218C53D6007A1F6F /* PassDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PassDetailsViewController.xib; sourceTree = "<group>"; };
 		CF348A3A218C627A007A1F6F /* PassDetailsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassDetailsDataSource.swift; sourceTree = "<group>"; };
 		CF354634217E12D300759A84 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		CF3AABB321F7621500A626D2 /* DependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyContainer.swift; sourceTree = "<group>"; };
 		CF4334792187082600473B97 /* PassCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassCell.swift; sourceTree = "<group>"; };
 		CF43347A2187082600473B97 /* PassCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PassCell.xib; sourceTree = "<group>"; };
 		CF4E3FA121E0B4050019EBC0 /* DistanceAndTravelTimeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceAndTravelTimeCell.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 				CFD5B7E6218B4A230047C521 /* CellRepresentable.swift */,
 				CFD5B7E8218B4D470047C521 /* viewModels.swift */,
 				CF88578921D6264400F96511 /* UserLocation.swift */,
+				CF3AABB321F7621500A626D2 /* DependencyContainer.swift */,
 			);
 			path = Elements;
 			sourceTree = "<group>";
@@ -280,6 +283,7 @@
 				CF88578A21D6264400F96511 /* UserLocation.swift in Sources */,
 				CFD5B7EC218B4F5F0047C521 /* DataCell.swift in Sources */,
 				CFD36AFC217A19090025BB34 /* Pass.swift in Sources */,
+				CF3AABB421F7621500A626D2 /* DependencyContainer.swift in Sources */,
 				CFD094CC217CCA4900D350F1 /* PassMarkerView.swift in Sources */,
 				CF348A38218C53D6007A1F6F /* PassDetailsViewController.swift in Sources */,
 				CF1722742173448F009E3577 /* AppDelegate.swift in Sources */,

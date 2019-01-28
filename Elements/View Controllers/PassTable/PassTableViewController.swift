@@ -5,13 +5,9 @@ class PassTableViewController: UITableViewController {
     let tableViewDataSource: PassTableDataSource
     let tableViewDelegate: PassTableDelegate
     
-    let passes: [Pass]
-    
-    init(passes: [Pass], locationProvider: LocationProvider) {
-        self.passes = passes
-        self.tableViewDataSource = PassTableDataSource(passes: passes)
-        self.tableViewDelegate = PassTableDelegate(locationProvider: locationProvider)
-        
+    init(dataSource: PassTableDataSource, delegate: PassTableDelegate) {
+        self.tableViewDataSource = dataSource
+        self.tableViewDelegate = delegate
         super.init(nibName: nil, bundle: nil)
         
         self.tableViewDelegate.cellSelectionHandler = { [weak self] viewController in
