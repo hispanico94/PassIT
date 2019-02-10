@@ -21,6 +21,8 @@
 		CF43347C2187082600473B97 /* PassCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF43347A2187082600473B97 /* PassCell.xib */; };
 		CF4E3FA321E0B4050019EBC0 /* DistanceAndTravelTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4E3FA121E0B4050019EBC0 /* DistanceAndTravelTimeCell.swift */; };
 		CF4E3FA421E0B4050019EBC0 /* DistanceAndTravelTimeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF4E3FA221E0B4050019EBC0 /* DistanceAndTravelTimeCell.xib */; };
+		CF52BDD82210707500EB3EC5 /* MKDirections.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF52BDD72210707500EB3EC5 /* MKDirections.swift */; };
+		CF549EAB220ED26F00133286 /* MKDirections+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF549EAA220ED26F00133286 /* MKDirections+Rx.swift */; };
 		CF88578A21D6264400F96511 /* UserLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF88578921D6264400F96511 /* UserLocation.swift */; };
 		CFD094CA217CC8F600D350F1 /* JsonFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD094C9217CC8F600D350F1 /* JsonFile.swift */; };
 		CFD094CC217CCA4900D350F1 /* PassMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD094CB217CCA4900D350F1 /* PassMarkerView.swift */; };
@@ -59,6 +61,8 @@
 		CF43347A2187082600473B97 /* PassCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PassCell.xib; sourceTree = "<group>"; };
 		CF4E3FA121E0B4050019EBC0 /* DistanceAndTravelTimeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceAndTravelTimeCell.swift; sourceTree = "<group>"; };
 		CF4E3FA221E0B4050019EBC0 /* DistanceAndTravelTimeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DistanceAndTravelTimeCell.xib; sourceTree = "<group>"; };
+		CF52BDD72210707500EB3EC5 /* MKDirections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKDirections.swift; sourceTree = "<group>"; };
+		CF549EAA220ED26F00133286 /* MKDirections+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKDirections+Rx.swift"; sourceTree = "<group>"; };
 		CF88578921D6264400F96511 /* UserLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocation.swift; sourceTree = "<group>"; };
 		CFD094C9217CC8F600D350F1 /* JsonFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonFile.swift; sourceTree = "<group>"; };
 		CFD094CB217CCA4900D350F1 /* PassMarkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassMarkerView.swift; sourceTree = "<group>"; };
@@ -148,9 +152,27 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		CF52BDD62210705500EB3EC5 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CF52BDD72210707500EB3EC5 /* MKDirections.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		CF549EA9220ED25200133286 /* Reactive Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CF549EAA220ED26F00133286 /* MKDirections+Rx.swift */,
+			);
+			path = "Reactive Extensions";
+			sourceTree = "<group>";
+		};
 		CFDFF7132173A14B00205BDF /* Elements */ = {
 			isa = PBXGroup;
 			children = (
+				CF52BDD62210705500EB3EC5 /* Extensions */,
+				CF549EA9220ED25200133286 /* Reactive Extensions */,
 				CFE08AD02189AC6500A86089 /* DetailAccessoryView */,
 				CF43347D2187083200473B97 /* Cells */,
 				CFDFF7142173A15A00205BDF /* View Controllers */,
@@ -320,6 +342,7 @@
 				CFE08AD22189ACBB00A86089 /* PassTableDelegate.swift in Sources */,
 				CF034B472181C259003ED8D0 /* DetailAccessoryView.swift in Sources */,
 				CFE08ACD2189A45300A86089 /* PassTableDataSource.swift in Sources */,
+				CF52BDD82210707500EB3EC5 /* MKDirections.swift in Sources */,
 				CF88578A21D6264400F96511 /* UserLocation.swift in Sources */,
 				CFD5B7EC218B4F5F0047C521 /* DataCell.swift in Sources */,
 				CFD36AFC217A19090025BB34 /* Pass.swift in Sources */,
@@ -336,6 +359,7 @@
 				CFD5B7E9218B4D470047C521 /* viewModels.swift in Sources */,
 				CF354635217E12D300759A84 /* Extensions.swift in Sources */,
 				CFD5B7F0218B51DD0047C521 /* MapCell.swift in Sources */,
+				CF549EAB220ED26F00133286 /* MKDirections+Rx.swift in Sources */,
 				CF4E3FA321E0B4050019EBC0 /* DistanceAndTravelTimeCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

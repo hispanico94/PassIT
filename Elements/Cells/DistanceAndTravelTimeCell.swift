@@ -1,5 +1,7 @@
 import UIKit
 import MapKit
+import RxSwift
+import RxCocoa
 
 class DistanceAndTravelTimeCell: UITableViewCell {
     static let defaultIdentifier = "DistanceAndTravelTimeCellIdentifier"
@@ -14,33 +16,32 @@ class DistanceAndTravelTimeCell: UITableViewCell {
             timeLabel.isHidden = true
         }
     }
-    
     @IBOutlet weak var mapsButton: UIButton! {
         didSet {
             mapsButton.setBackgroundImage(UIImage(named: "maps_icon"), for: .normal)
             mapsButton.isHidden = true
         }
     }
-    
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView! {
         didSet {
             activityIndicator.isHidden = false
             activityIndicator.startAnimating()
         }
     }
-    
     @IBOutlet weak var errorMessageLabel: UILabel! {
         didSet {
             errorMessageLabel.isHidden = true
         }
     }
     
-    
     private var pass: Pass!
     private var locationProvider: LocationProvider!
+    private let disposeBag = DisposeBag()
     
     static func getCell() -> DistanceAndTravelTimeCell {
-        return UINib(nibName: "DistanceAndTravelTimeCell", bundle: nil).instantiate(withOwner: nil, options: nil).first as! DistanceAndTravelTimeCell
+        return UINib(nibName: "DistanceAndTravelTimeCell", bundle: nil)
+            .instantiate(withOwner: nil, options: nil)
+            .first as! DistanceAndTravelTimeCell
     }
     
     func set(with pass: Pass, locationProvider: LocationProvider) -> DistanceAndTravelTimeCell {
@@ -56,44 +57,73 @@ class DistanceAndTravelTimeCell: UITableViewCell {
             print("DistanceAndTravelTimeCell.swift - No last location available")
             return
         }
-        let sourcePlacemark = MKPlacemark(coordinate: userLocation.coordinate)
-        let destinationPlacemark = MKPlacemark(coordinate: pass.coordinates)
+        let source = MKPlacemark(coordinate: userLocation.coordinate)
+        let destination = MKPlacemark(coordinate: pass.coordinates)
         
-        let directionRequest = MKDirections.Request()
-        directionRequest.source = MKMapItem(placemark: sourcePlacemark)
-        directionRequest.destination = MKMapItem(placemark: destinationPlacemark)
-        directionRequest.transportType = .automobile
+        let directionRequest = MKDirections.Request.drivingDirections(from: source, to: destination)
         
-        let directions = MKDirections(request: directionRequest)
-        directions.calculateETA { [weak self] response, error in
-            guard let directionResponse = response else {
-                if let error = error as? MKError {
-                    print("DistanceAndTravelTimeCell.swift - An error occurred when requesting ETA: \(error.localizedDescription)")
-                    self?.setErrorLabel(with: error.localizedDescription)
+        let distanceAndTime = MKDirections(request: directionRequest).rx
+            .calculateETA
+            .map(distanceAndTravelTime(_:))
+            .map(formatStrings(distance:travelTime:))
+            .asObservable()
+            .observeOn(MainScheduler.instance)
+            .share()
+        
+        distanceAndTime
+            .map { $0.distance }
+            .bind(to: distanceLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        distanceAndTime
+            .map { $0.travelTime }
+            .bind(to: timeLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        distanceAndTime
+            .do(
+                onError: { [weak self] error in
+                    self?.errorMessageLabel.text = error.localizedDescription
+                    self?.setLabels(requestSuccessful: false)
+                },
+                onCompleted: { [weak self] in
+                    self?.setLabels(requestSuccessful: true)
                 }
-                return
-            }
-            
-            self?.setLabels(withDistance: directionResponse.distance, andTime: directionResponse.expectedTravelTime)
-        }
+            )
+            .subscribe()
+            .disposed(by: disposeBag)
     }
     
-    private func setLabels(withDistance distance: CLLocationDistance, andTime time: TimeInterval) {
-        distanceLabel.text = formatDistance(from: distance)
-        timeLabel.text = formatTime(from: time)
-        
+    private func setLabels(requestSuccessful: Bool) {
         activityIndicator.stopAnimating()
         activityIndicator.isHidden = true
         
-        errorMessageLabel.isHidden = true
+        errorMessageLabel.isHidden = requestSuccessful ? true : false
         
-        distanceLabel.isHidden = false
-        timeLabel.isHidden = false
-        
-        mapsButton.isHidden = false
+        distanceLabel.isHidden = requestSuccessful ? false : true
+        timeLabel.isHidden = requestSuccessful ? false : true
+        mapsButton.isHidden = requestSuccessful ? false : true
     }
     
-    private func formatDistance(from distance: CLLocationDistance) -> String {
+    @IBAction func userDidTapMapsButton(_ sender: UIButton) {
+        let mapItem = MKMapItem(placemark: MKPlacemark(coordinate: pass.coordinates))
+        
+        let launchOptions: [String: Any] = [
+            MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving,
+            MKLaunchOptionsMapTypeKey: NSNumber(value: MKMapType.standard.rawValue)
+        ]
+        mapItem.openInMaps(launchOptions: launchOptions)
+    }
+    
+}
+
+private func distanceAndTravelTime(_ response: MKDirections.ETAResponse) -> (CLLocationDistance, TimeInterval) {
+    return (response.distance, response.expectedTravelTime)
+}
+
+private func formatStrings(distance: CLLocationDistance, travelTime: TimeInterval) -> (distance: String, travelTime: String) {
+    
+    func formatDistance(from distance: CLLocationDistance) -> String {
         let distanceInKm = Measurement(value: distance, unit: UnitLength.meters).converted(to: .kilometers)
         let formatter = MeasurementFormatter()
         formatter.unitOptions = .providedUnit
@@ -106,7 +136,7 @@ class DistanceAndTravelTimeCell: UITableViewCell {
         return formatter.string(from: distanceInKm)
     }
     
-    private func formatTime(from time: TimeInterval) -> String! {
+    func formatTime(from time: TimeInterval) -> String! {
         let formatter = DateComponentsFormatter()
         formatter.allowedUnits = [.hour, .minute]
         formatter.unitsStyle = .abbreviated
@@ -114,30 +144,5 @@ class DistanceAndTravelTimeCell: UITableViewCell {
         return formatter.string(from: time)
     }
     
-    private func setErrorLabel(with message: String) {
-        errorMessageLabel.text = message
-        
-        activityIndicator.stopAnimating()
-        activityIndicator.isHidden = true
-        
-        distanceLabel.isHidden = true
-        timeLabel.isHidden = true
-        
-        mapsButton.isHidden = true
-        
-        errorMessageLabel.isHidden = false
-    }
-    
-    @IBAction func userDidTapMapsButton(_ sender: UIButton) {
-        let mapItem = MKMapItem(placemark: MKPlacemark(coordinate: pass.coordinates))
-        
-        let launchOptions: [String: Any] = [
-            MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving,
-            MKLaunchOptionsMapTypeKey: NSNumber(value: MKMapType.standard.rawValue)
-        ]
-        
-        mapItem.openInMaps(launchOptions: launchOptions)
-    }
-    
+    return (distance: formatDistance(from: distance), travelTime: formatTime(from: travelTime))
 }
-
