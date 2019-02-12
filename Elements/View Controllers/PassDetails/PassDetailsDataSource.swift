@@ -1,10 +1,12 @@
 import UIKit
+import RxSwift
+import CoreLocation
 
 class PassDetailsDataSource: NSObject {
     private let passData: [Section]
     
-    init(pass: Pass, locationProvider: LocationProvider) {
-        self.passData = pass.getDataForDisplayInTableView(locationProvider: locationProvider)
+    init(pass: Pass, userLocation: Observable<CLLocation?>) {
+        self.passData = pass.getDataForDisplayInTableView(userLocation: userLocation)
         super.init()
     }
 }

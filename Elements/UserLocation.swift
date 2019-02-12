@@ -1,62 +1,47 @@
-import Foundation
 import CoreLocation
+import RxSwift
+import RxCocoa
 
-protocol LocationProvider {
-    var lastLocation: CLLocation? { get }
-    func notifyOnLocationChange(identifier: String, _ callback: @escaping (CLLocation) -> Void)
-    func removeNotificationOnLocationChange(identifier: String)
-}
-
-class UserLocation: NSObject {
-    let locationManager = CLLocationManager()
+class UserLocation {
+    private let locationManager: CLLocationManager
     
-    private var isAuthorizedLocalizationWhenInUse: Bool {
+    private var isLocalizationAuthorizedWhenInUse: Bool {
         return CLLocationManager.authorizationStatus() == .authorizedWhenInUse
     }
     
-    private(set) var lastLocation: CLLocation? {
-        didSet {
-            guard let lastLocation = lastLocation else { return }
-            callbacks.values.forEach { $0(lastLocation) }
-        }
+    var lastLocation: Observable<CLLocation?> {
+        return locationRelay
+            .asObservable()
+            .share()
     }
     
-    private var callbacks: [String: (CLLocation) -> Void] = [:]
+    private var locationRelay: BehaviorRelay<CLLocation?> = BehaviorRelay.init(value: nil)
     
-    override init() {
-        super.init()
-        setLocationManager()
-    }
+    private let disposeBag = DisposeBag()
     
-    private func setLocationManager() {
-        locationManager.delegate = self
+    init() {
+        locationManager = CLLocationManager()
+        
         locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
         locationManager.distanceFilter = 100
         
-        if isAuthorizedLocalizationWhenInUse {
+        subscribeToLocationUpdate()
+        
+        if isLocalizationAuthorizedWhenInUse {
             locationManager.startUpdatingLocation()
         } else {
             locationManager.requestWhenInUseAuthorization()
         }
     }
-}
-
-extension UserLocation: CLLocationManagerDelegate {
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        lastLocation = locations.first
-    }
     
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        let clError = error as! CLError
-        print("UserLocation.LocationManager error: \(clError.localizedDescription)")
-    }
-}
-
-extension UserLocation: LocationProvider {
-    func notifyOnLocationChange(identifier: String, _ callback: @escaping (CLLocation) -> Void) {
-        callbacks[identifier] = callback
-    }
-    func removeNotificationOnLocationChange(identifier: String) {
-        callbacks[identifier] = nil
+    private func subscribeToLocationUpdate() {
+        locationManager.rx.didUpdateLocations
+            .map { $0[0] }
+            .filter { $0.horizontalAccuracy < kCLLocationAccuracyHundredMeters }
+            .subscribe(onNext: { [weak self] newLocation in
+                self?.locationRelay.accept(newLocation)
+                
+            })
+            .disposed(by: disposeBag)
     }
 }

@@ -1,6 +1,7 @@
 import Foundation
 import CoreLocation
 import UIKit
+import RxSwift
 
 struct Pass {
     let id: Int
@@ -137,9 +138,9 @@ extension PassType: CustomStringConvertible {
 }
 
 extension Pass {
-    func getDataForDisplayInTableView(locationProvider: LocationProvider) -> [Section] {
+    func getDataForDisplayInTableView(userLocation: Observable<CLLocation?>) -> [Section] {
         let infoSection = getInformationsSection()
-        let distanceAndTravelTimeSection = getDistanceAndTravelTimeSection(locationProvider: locationProvider)
+        let distanceAndTravelTimeSection = getDistanceAndTravelTimeSection(userLocation: userLocation)
         let mapSection = getMapSection()
         return [infoSection, distanceAndTravelTimeSection, mapSection]
     }
@@ -166,8 +167,8 @@ extension Pass {
         return Section(title: "Map", rows: [mapRow])
     }
     
-    private func getDistanceAndTravelTimeSection(locationProvider: LocationProvider) -> Section {
-        let distanceAndTravelTimeRow = DistanceAndTravelTimeRow(pass: self, locationProvider: locationProvider)
+    private func getDistanceAndTravelTimeSection(userLocation: Observable<CLLocation?>) -> Section {
+        let distanceAndTravelTimeRow = DistanceAndTravelTimeRow(pass: self, userLocation: userLocation)
         return Section(title: "Distance and Travel Time", rows: [distanceAndTravelTimeRow])
     }
 }

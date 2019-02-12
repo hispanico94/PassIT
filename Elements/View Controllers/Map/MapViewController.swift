@@ -1,18 +1,21 @@
 import UIKit
 import MapKit
+import RxSwift
 
 class MapViewController: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
     
-    let initialRegionRadius: CLLocationDistance = 20000
+    let initialRegionRadius: CLLocationDistance = 30000
     
     let passes: [Pass]
-    let locationProvider: LocationProvider
+    let userLocation: Observable<CLLocation?>
     
-    init(passes: [Pass], locationProvider: LocationProvider) {
+    let disposeBag = DisposeBag()
+    
+    init(passes: [Pass], userLocation: Observable<CLLocation?>) {
         self.passes = passes
-        self.locationProvider = locationProvider
+        self.userLocation = userLocation
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -30,13 +33,16 @@ class MapViewController: UIViewController {
         
         mapView.showsUserLocation = true
         
-        if let userCoordinates = locationProvider.lastLocation?.coordinate {
-            centerMap(onCoordinates: userCoordinates)
-        }
-    }
-    
-    private func centerMap(onCoordinates coordinates: CLLocationCoordinate2D) {
-        let userRegion = MKCoordinateRegion(center: coordinates, latitudinalMeters: initialRegionRadius, longitudinalMeters: initialRegionRadius)
-        mapView.setRegion(userRegion, animated: true)
+        userLocation
+            .filter { $0 != nil }
+            .map { $0! }
+            .take(1)
+            .map { [unowned self] location in
+                return MKCoordinateRegion(center: location.coordinate,
+                                          latitudinalMeters: self.initialRegionRadius,
+                                          longitudinalMeters: self.initialRegionRadius)
+            }
+            .bind(to: mapView.rx.region)
+            .disposed(by: disposeBag)
     }
 }

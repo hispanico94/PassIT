@@ -1,9 +1,8 @@
-import Foundation
 import UIKit
 
 class DependencyContainer {
     private lazy var passes = getPasses()
-    private lazy var userLocation = UserLocation()
+    private var userLocation = UserLocation()
 }
 
 protocol ViewControllerFactory {
@@ -24,11 +23,11 @@ extension DependencyContainer: ViewControllerFactory {
     }
     
     func makePassDetailsViewController(with pass: Pass) -> PassDetailsViewController {
-        return PassDetailsViewController(pass: pass, locationProvider: userLocation)
+        return PassDetailsViewController(pass: pass, userLocation: userLocation.lastLocation)
     }
     
     private func makeMapViewController() -> MapViewController {
-        let mapViewController = MapViewController(passes: passes, locationProvider: userLocation)
+        let mapViewController = MapViewController(passes: passes, userLocation: userLocation.lastLocation)
         mapViewController.tabBarItem = UITabBarItem(title: "Map", image: UIImage(named: "map_tab_bar_icon"), tag: 0)
         return mapViewController
     }

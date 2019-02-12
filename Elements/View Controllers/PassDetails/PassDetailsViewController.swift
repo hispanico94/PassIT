@@ -1,11 +1,13 @@
 import UIKit
+import RxSwift
+import CoreLocation
 
 class PassDetailsViewController: UITableViewController {
     
     private let tableViewDataSource: PassDetailsDataSource
     
-    init(pass: Pass, locationProvider: LocationProvider) {
-        self.tableViewDataSource = PassDetailsDataSource(pass: pass, locationProvider: locationProvider)
+    init(pass: Pass, userLocation: Observable<CLLocation?>) {
+        self.tableViewDataSource = PassDetailsDataSource(pass: pass, userLocation: userLocation)
         super.init(nibName: nil, bundle: nil)
         
         self.title = pass.name

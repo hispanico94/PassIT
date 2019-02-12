@@ -1,4 +1,3 @@
-import Foundation
 import MapKit
 
 extension MKDirections.Request {

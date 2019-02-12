@@ -1,5 +1,6 @@
 import UIKit
 import CoreLocation
+import RxSwift
 
 struct Section {
     let title: String
@@ -17,7 +18,7 @@ struct MapRow {
 
 struct DistanceAndTravelTimeRow {
     let pass: Pass
-    let locationProvider: LocationProvider
+    let userLocation: Observable<CLLocation?>
 }
 
 // MARK: - Conforming to CellRepresentable
@@ -42,6 +43,6 @@ extension DistanceAndTravelTimeRow: CellRepresentable {
     func makeTableViewCell(for tableView: UITableView) -> UITableViewCell {
         let dequedCell = tableView.dequeueReusableCell(withIdentifier: DistanceAndTravelTimeCell.defaultIdentifier) as? DistanceAndTravelTimeCell
         let cell = dequedCell ?? DistanceAndTravelTimeCell.getCell()
-        return cell.set(with: pass, locationProvider: locationProvider)
+        return cell.set(with: pass, userLocation: userLocation)
     }
 }

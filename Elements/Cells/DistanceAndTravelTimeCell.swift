@@ -35,8 +35,9 @@ class DistanceAndTravelTimeCell: UITableViewCell {
     }
     
     private var pass: Pass!
-    private var locationProvider: LocationProvider!
+    private var userLocation: Observable<CLLocation?>!
     private let disposeBag = DisposeBag()
+    private let locationManager = CLLocationManager()
     
     static func getCell() -> DistanceAndTravelTimeCell {
         return UINib(nibName: "DistanceAndTravelTimeCell", bundle: nil)
@@ -44,29 +45,29 @@ class DistanceAndTravelTimeCell: UITableViewCell {
             .first as! DistanceAndTravelTimeCell
     }
     
-    func set(with pass: Pass, locationProvider: LocationProvider) -> DistanceAndTravelTimeCell {
+    func set(with pass: Pass, userLocation: Observable<CLLocation?>) -> DistanceAndTravelTimeCell {
         self.pass = pass
-        self.locationProvider = locationProvider
+        self.userLocation = userLocation
         self.selectionStyle = .none
         getDistanceAndTravelTime()
         return self
     }
     
     private func getDistanceAndTravelTime() {
-        guard let userLocation = locationProvider.lastLocation else {
-            print("DistanceAndTravelTimeCell.swift - No last location available")
-            return
-        }
-        let source = MKPlacemark(coordinate: userLocation.coordinate)
-        let destination = MKPlacemark(coordinate: pass.coordinates)
         
-        let directionRequest = MKDirections.Request.drivingDirections(from: source, to: destination)
-        
-        let distanceAndTime = MKDirections(request: directionRequest).rx
-            .calculateETA
-            .map(distanceAndTravelTime(_:))
-            .map(formatStrings(distance:travelTime:))
-            .asObservable()
+        let distanceAndTime = userLocation
+            .take(1)
+            .map { [weak self] location in
+                return makeDirectionRequest(from: location?.coordinate, to: self?.pass.coordinates)
+            }
+            .filter { $0 != nil }
+            .map { $0! }
+            .flatMap { request in
+                return MKDirections(request: request).rx
+                    .calculateETA
+                    .map(distanceAndTravelTime(_:))
+                    .map(formatStrings(distance:travelTime:))
+            }
             .observeOn(MainScheduler.instance)
             .share()
         
@@ -115,6 +116,15 @@ class DistanceAndTravelTimeCell: UITableViewCell {
         mapItem.openInMaps(launchOptions: launchOptions)
     }
     
+}
+
+private func makeDirectionRequest(from source: CLLocationCoordinate2D?, to destination: CLLocationCoordinate2D?) -> MKDirections.Request? {
+    guard let source = source, let destination = destination else {
+        return nil
+    }
+    let sourcePlacemark = MKPlacemark(coordinate: source)
+    let destinationPlacemark = MKPlacemark(coordinate: destination)
+    return MKDirections.Request.drivingDirections(from: sourcePlacemark, to: destinationPlacemark)
 }
 
 private func distanceAndTravelTime(_ response: MKDirections.ETAResponse) -> (CLLocationDistance, TimeInterval) {
