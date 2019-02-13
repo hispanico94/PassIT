@@ -9,11 +9,11 @@ class MapViewController: UIViewController {
     let initialRegionRadius: CLLocationDistance = 30000
     
     let passes: [Pass]
-    let userLocation: Observable<CLLocation?>
+    let userLocation: Observable<CLLocation>
     
     let disposeBag = DisposeBag()
     
-    init(passes: [Pass], userLocation: Observable<CLLocation?>) {
+    init(passes: [Pass], userLocation: Observable<CLLocation>) {
         self.passes = passes
         self.userLocation = userLocation
         super.init(nibName: nil, bundle: nil)
@@ -34,8 +34,6 @@ class MapViewController: UIViewController {
         mapView.showsUserLocation = true
         
         userLocation
-            .filter { $0 != nil }
-            .map { $0! }
             .take(1)
             .map { [unowned self] location in
                 return MKCoordinateRegion(center: location.coordinate,

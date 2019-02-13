@@ -138,7 +138,7 @@ extension PassType: CustomStringConvertible {
 }
 
 extension Pass {
-    func getDataForDisplayInTableView(userLocation: Observable<CLLocation?>) -> [Section] {
+    func getDataForDisplayInTableView(userLocation: Observable<CLLocation>) -> [Section] {
         let infoSection = getInformationsSection()
         let distanceAndTravelTimeSection = getDistanceAndTravelTimeSection(userLocation: userLocation)
         let mapSection = getMapSection()
@@ -167,7 +167,7 @@ extension Pass {
         return Section(title: "Map", rows: [mapRow])
     }
     
-    private func getDistanceAndTravelTimeSection(userLocation: Observable<CLLocation?>) -> Section {
+    private func getDistanceAndTravelTimeSection(userLocation: Observable<CLLocation>) -> Section {
         let distanceAndTravelTimeRow = DistanceAndTravelTimeRow(pass: self, userLocation: userLocation)
         return Section(title: "Distance and Travel Time", rows: [distanceAndTravelTimeRow])
     }

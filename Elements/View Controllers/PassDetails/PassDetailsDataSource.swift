@@ -5,7 +5,7 @@ import CoreLocation
 class PassDetailsDataSource: NSObject {
     private let passData: [Section]
     
-    init(pass: Pass, userLocation: Observable<CLLocation?>) {
+    init(pass: Pass, userLocation: Observable<CLLocation>) {
         self.passData = pass.getDataForDisplayInTableView(userLocation: userLocation)
         super.init()
     }

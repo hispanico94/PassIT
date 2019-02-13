@@ -18,7 +18,7 @@ struct MapRow {
 
 struct DistanceAndTravelTimeRow {
     let pass: Pass
-    let userLocation: Observable<CLLocation?>
+    let userLocation: Observable<CLLocation>
 }
 
 // MARK: - Conforming to CellRepresentable

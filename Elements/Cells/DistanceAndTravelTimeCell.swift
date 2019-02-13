@@ -35,7 +35,7 @@ class DistanceAndTravelTimeCell: UITableViewCell {
     }
     
     private var pass: Pass!
-    private var userLocation: Observable<CLLocation?>!
+    private var userLocation: Observable<CLLocation>!
     private let disposeBag = DisposeBag()
     private let locationManager = CLLocationManager()
     
@@ -45,7 +45,7 @@ class DistanceAndTravelTimeCell: UITableViewCell {
             .first as! DistanceAndTravelTimeCell
     }
     
-    func set(with pass: Pass, userLocation: Observable<CLLocation?>) -> DistanceAndTravelTimeCell {
+    func set(with pass: Pass, userLocation: Observable<CLLocation>) -> DistanceAndTravelTimeCell {
         self.pass = pass
         self.userLocation = userLocation
         self.selectionStyle = .none
@@ -58,7 +58,7 @@ class DistanceAndTravelTimeCell: UITableViewCell {
         let distanceAndTime = userLocation
             .take(1)
             .map { [weak self] location in
-                return makeDirectionRequest(from: location?.coordinate, to: self?.pass.coordinates)
+                return makeDirectionRequest(from: location.coordinate, to: self?.pass.coordinates)
             }
             .filter { $0 != nil }
             .map { $0! }

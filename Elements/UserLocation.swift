@@ -9,13 +9,15 @@ class UserLocation {
         return CLLocationManager.authorizationStatus() == .authorizedWhenInUse
     }
     
-    var lastLocation: Observable<CLLocation?> {
+    var lastLocation: Observable<CLLocation> {
         return locationRelay
+            .filter { $0 != nil }
+            .map { $0! }
             .asObservable()
             .share()
     }
     
-    private var locationRelay: BehaviorRelay<CLLocation?> = BehaviorRelay.init(value: nil)
+    private var locationRelay: BehaviorRelay<CLLocation?> = BehaviorRelay(value: nil)
     
     private let disposeBag = DisposeBag()
     

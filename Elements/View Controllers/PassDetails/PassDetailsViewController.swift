@@ -6,7 +6,7 @@ class PassDetailsViewController: UITableViewController {
     
     private let tableViewDataSource: PassDetailsDataSource
     
-    init(pass: Pass, userLocation: Observable<CLLocation?>) {
+    init(pass: Pass, userLocation: Observable<CLLocation>) {
         self.tableViewDataSource = PassDetailsDataSource(pass: pass, userLocation: userLocation)
         super.init(nibName: nil, bundle: nil)
         
