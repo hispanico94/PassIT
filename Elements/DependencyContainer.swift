@@ -1,7 +1,7 @@
 import UIKit
 
 class DependencyContainer {
-    private lazy var passes = getPasses()
+    private lazy var passes = JsonFile.getPasses()
     private var userLocation = UserLocation()
 }
 
