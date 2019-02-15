@@ -8,4 +8,10 @@ extension Reactive where Base: MKMapView {
             mapView.setRegion(region, animated: true)
         }
     }
+    
+    var annotations: Binder<[MKAnnotation]> {
+        return Binder(self.base) { mapView, annotations in
+            mapView.addAnnotations(annotations)
+        }
+    }
 }

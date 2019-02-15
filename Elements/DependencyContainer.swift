@@ -27,7 +27,8 @@ extension DependencyContainer: ViewControllerFactory {
     }
     
     private func makeMapViewController() -> MapViewController {
-        let mapViewController = MapViewController(passes: passes, userLocation: userLocation.lastLocation)
+        let mapViewModel = MapViewModel(passes: passes, userLocation: userLocation.lastLocation)
+        let mapViewController = MapViewController(viewModel: mapViewModel)
         mapViewController.tabBarItem = UITabBarItem(title: "Map", image: UIImage(named: "map_tab_bar_icon"), tag: 0)
         return mapViewController
     }

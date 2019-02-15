@@ -6,16 +6,12 @@ class MapViewController: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
     
-    let initialRegionRadius: CLLocationDistance = 30000
-    
-    let passes: [Pass]
-    let userLocation: Observable<CLLocation>
+    let viewModel: MapViewModel
     
     let disposeBag = DisposeBag()
     
-    init(passes: [Pass], userLocation: Observable<CLLocation>) {
-        self.passes = passes
-        self.userLocation = userLocation
+    init(viewModel: MapViewModel) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -26,20 +22,20 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        mapView.register(PassMarkerView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
-        
-        let passesAnnotations = passes.map(PassAnnotation.init)
-        mapView.addAnnotations(passesAnnotations)
+        mapView.register(PassMarkerView.self,
+            forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
         
         mapView.showsUserLocation = true
         
-        userLocation
-            .take(1)
-            .map { [unowned self] location in
-                return MKCoordinateRegion(center: location.coordinate,
-                                          latitudinalMeters: self.initialRegionRadius,
-                                          longitudinalMeters: self.initialRegionRadius)
-            }
+        bindViewModel()
+    }
+    
+    private func bindViewModel() {
+        viewModel.annotations
+            .bind(to: mapView.rx.annotations)
+            .disposed(by: disposeBag)
+        
+        viewModel.initialMapRegion
             .bind(to: mapView.rx.region)
             .disposed(by: disposeBag)
     }
