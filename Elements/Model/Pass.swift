@@ -66,6 +66,51 @@ enum Region: String, Codable, CaseIterable {
     case calabria = "Calabria"
     case sicilia = "Sicilia"
     case sardegna = "Sardegna"
+    
+    var abbreviated: String {
+        switch self {
+        case .valleAosta:
+            return "VdA"
+        case .piemonte:
+            return "Pie"
+        case .liguria:
+            return "Lig"
+        case .lombardia:
+            return "Lom"
+        case .trentinoAltoAdige:
+            return "TAA"
+        case .veneto:
+            return "Ven"
+        case .friuliVeneziaGiulia:
+            return "FVG"
+        case .emiliaRomagna:
+            return "EmR"
+        case .toscana:
+            return "Tos"
+        case .umbria:
+            return "Umb"
+        case .marche:
+            return "Mar"
+        case .lazio:
+            return "Laz"
+        case .abruzzo:
+            return "Abr"
+        case .molise:
+            return "Mol"
+        case .campania:
+            return "Cam"
+        case .basilicata:
+            return "Bas"
+        case .puglia:
+            return "Pug"
+        case .calabria:
+            return "Cal"
+        case .sicilia:
+            return "Sic"
+        case .sardegna:
+            return "Sar"
+        }
+    }
 }
 
 // MARK: - Conforming to Codable protocol

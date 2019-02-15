@@ -37,7 +37,6 @@ extension PassTableDataSource: UITableViewDataSource {
     }
     
     func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        let firstCharacterOfRegions = orderedRegions.map { $0.rawValue.first! }
-        return firstCharacterOfRegions.map(String.init)
+        return orderedRegions.map { $0.abbreviated }
     }
 }
