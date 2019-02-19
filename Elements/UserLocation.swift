@@ -28,6 +28,7 @@ class UserLocation {
         locationManager.distanceFilter = 100
         
         subscribeToLocationUpdate()
+        subscribeToErrors()
         
         if isLocalizationAuthorizedWhenInUse {
             locationManager.startUpdatingLocation()
@@ -44,6 +45,13 @@ class UserLocation {
                 self?.locationRelay.accept(newLocation)
                 
             })
+            .disposed(by: disposeBag)
+    }
+    
+    private func subscribeToErrors() {
+        locationManager.rx.didFailWithError
+            .do(onNext: { print("UserLocation.swift - LocationManager failed with error: \($0.localizedDescription)") })
+            .subscribe()
             .disposed(by: disposeBag)
     }
 }

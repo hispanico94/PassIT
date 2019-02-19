@@ -30,4 +30,11 @@ extension Reactive where Base: CLLocationManager {
                 return parameters[1] as! [CLLocation]
         }
     }
+    
+    var didFailWithError: Observable<Error> {
+        return delegate.methodInvoked(#selector(CLLocationManagerDelegate.locationManager(_:didFailWithError:)))
+            .map { parameters in
+                return parameters[1] as! Error
+        }
+    }
 }
