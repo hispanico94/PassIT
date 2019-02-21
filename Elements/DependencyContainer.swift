@@ -2,7 +2,7 @@ import UIKit
 
 class DependencyContainer {
     private lazy var passes = JsonFile.getPasses()
-    private var userLocation = UserLocation()
+    private lazy var userLocation = UserLocation()
 }
 
 protocol ViewControllerFactory {
@@ -14,7 +14,8 @@ protocol ViewControllerFactory {
 
 extension DependencyContainer: ViewControllerFactory {
     func makeInitialViewControllers() -> UIViewController {
-        let navigationController = UINavigationController(rootViewController: makePassTableViewController())
+        let navigationController = UINavigationController()
+        navigationController.viewControllers = [makePassTableViewController(navigationController: navigationController)]
         
         let tabBarController = UITabBarController()
         tabBarController.viewControllers = [makeMapViewController(), navigationController]
@@ -33,10 +34,9 @@ extension DependencyContainer: ViewControllerFactory {
         return mapViewController
     }
     
-    private func makePassTableViewController() -> PassTableViewController {
-        let dataSource = PassTableDataSource(passes: passes)
-        let delegate = PassTableDelegate(factory: self)
-        let passTableViewController = PassTableViewController(dataSource: dataSource, delegate: delegate)
+    private func makePassTableViewController(navigationController: UINavigationController) -> PassTableViewController {
+        let viewModel = PassTableViewModel(passes: passes, factory: self, navigationController: navigationController)
+        let passTableViewController = PassTableViewController(viewModel: viewModel)
         passTableViewController.title = "Passes and Peaks"
         passTableViewController.tabBarItem = UITabBarItem(title: "List", image: UIImage(named: "list_tab_bar_icon"), tag: 1)
         return passTableViewController

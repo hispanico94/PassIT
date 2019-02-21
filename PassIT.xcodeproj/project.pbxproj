@@ -18,6 +18,8 @@
 		CF348A3B218C627A007A1F6F /* PassDetailsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF348A3A218C627A007A1F6F /* PassDetailsDataSource.swift */; };
 		CF354635217E12D300759A84 /* Measurement.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF354634217E12D300759A84 /* Measurement.swift */; };
 		CF3AABB421F7621500A626D2 /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3AABB321F7621500A626D2 /* DependencyContainer.swift */; };
+		CF3BC591221C07080008E438 /* RxDataSources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF3BC590221C07080008E438 /* RxDataSources.framework */; };
+		CF3BC593221C073D0008E438 /* Differentiator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF3BC592221C073D0008E438 /* Differentiator.framework */; };
 		CF43347B2187082600473B97 /* PassCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4334792187082600473B97 /* PassCell.swift */; };
 		CF43347C2187082600473B97 /* PassCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF43347A2187082600473B97 /* PassCell.xib */; };
 		CF4E3FA321E0B4050019EBC0 /* DistanceAndTravelTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4E3FA121E0B4050019EBC0 /* DistanceAndTravelTimeCell.swift */; };
@@ -26,6 +28,7 @@
 		CF52BDD82210707500EB3EC5 /* MKDirections.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF52BDD72210707500EB3EC5 /* MKDirections.swift */; };
 		CF549EAB220ED26F00133286 /* MKDirections+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF549EAA220ED26F00133286 /* MKDirections+Rx.swift */; };
 		CF644E052211C78600585651 /* CLLocationManager+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF644E042211C78600585651 /* CLLocationManager+Rx.swift */; };
+		CF6531F0221ABA7300A86126 /* PassTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6531EF221ABA7300A86126 /* PassTableViewModel.swift */; };
 		CF88578A21D6264400F96511 /* UserLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF88578921D6264400F96511 /* UserLocation.swift */; };
 		CFD094CA217CC8F600D350F1 /* JsonFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD094C9217CC8F600D350F1 /* JsonFile.swift */; };
 		CFD094CC217CCA4900D350F1 /* PassMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD094CB217CCA4900D350F1 /* PassMarkerView.swift */; };
@@ -41,8 +44,6 @@
 		CFDFF7182173A18E00205BDF /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFDFF7162173A18E00205BDF /* MapViewController.xib */; };
 		CFDFF71B2173A1C500205BDF /* PassTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDFF7192173A1C500205BDF /* PassTableViewController.swift */; };
 		CFDFF71C2173A1C500205BDF /* PassTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFDFF71A2173A1C500205BDF /* PassTableViewController.xib */; };
-		CFE08ACD2189A45300A86089 /* PassTableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE08ACC2189A45300A86089 /* PassTableDataSource.swift */; };
-		CFE08AD22189ACBB00A86089 /* PassTableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE08AD12189ACBB00A86089 /* PassTableDelegate.swift */; };
 		CFF501BE220EC9FE007DBFF8 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFF501BC220EC9FE007DBFF8 /* RxCocoa.framework */; };
 		CFF501BF220EC9FE007DBFF8 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFF501BD220EC9FE007DBFF8 /* RxSwift.framework */; };
 /* End PBXBuildFile section */
@@ -61,6 +62,8 @@
 		CF348A3A218C627A007A1F6F /* PassDetailsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassDetailsDataSource.swift; sourceTree = "<group>"; };
 		CF354634217E12D300759A84 /* Measurement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Measurement.swift; sourceTree = "<group>"; };
 		CF3AABB321F7621500A626D2 /* DependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyContainer.swift; sourceTree = "<group>"; };
+		CF3BC590221C07080008E438 /* RxDataSources.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxDataSources.framework; path = Carthage/Build/iOS/RxDataSources.framework; sourceTree = "<group>"; };
+		CF3BC592221C073D0008E438 /* Differentiator.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Differentiator.framework; path = Carthage/Build/iOS/Differentiator.framework; sourceTree = "<group>"; };
 		CF4334792187082600473B97 /* PassCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassCell.swift; sourceTree = "<group>"; };
 		CF43347A2187082600473B97 /* PassCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PassCell.xib; sourceTree = "<group>"; };
 		CF4E3FA121E0B4050019EBC0 /* DistanceAndTravelTimeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceAndTravelTimeCell.swift; sourceTree = "<group>"; };
@@ -69,6 +72,7 @@
 		CF52BDD72210707500EB3EC5 /* MKDirections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKDirections.swift; sourceTree = "<group>"; };
 		CF549EAA220ED26F00133286 /* MKDirections+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKDirections+Rx.swift"; sourceTree = "<group>"; };
 		CF644E042211C78600585651 /* CLLocationManager+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationManager+Rx.swift"; sourceTree = "<group>"; };
+		CF6531EF221ABA7300A86126 /* PassTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassTableViewModel.swift; sourceTree = "<group>"; };
 		CF88578921D6264400F96511 /* UserLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocation.swift; sourceTree = "<group>"; };
 		CFD094C9217CC8F600D350F1 /* JsonFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonFile.swift; sourceTree = "<group>"; };
 		CFD094CB217CCA4900D350F1 /* PassMarkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassMarkerView.swift; sourceTree = "<group>"; };
@@ -84,8 +88,6 @@
 		CFDFF7162173A18E00205BDF /* MapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
 		CFDFF7192173A1C500205BDF /* PassTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassTableViewController.swift; sourceTree = "<group>"; };
 		CFDFF71A2173A1C500205BDF /* PassTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PassTableViewController.xib; sourceTree = "<group>"; };
-		CFE08ACC2189A45300A86089 /* PassTableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassTableDataSource.swift; sourceTree = "<group>"; };
-		CFE08AD12189ACBB00A86089 /* PassTableDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassTableDelegate.swift; sourceTree = "<group>"; };
 		CFF501BC220EC9FE007DBFF8 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		CFF501BD220EC9FE007DBFF8 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -97,6 +99,8 @@
 			files = (
 				CFF501BE220EC9FE007DBFF8 /* RxCocoa.framework in Frameworks */,
 				CFF501BF220EC9FE007DBFF8 /* RxSwift.framework in Frameworks */,
+				CF3BC591221C07080008E438 /* RxDataSources.framework in Frameworks */,
+				CF3BC593221C073D0008E438 /* Differentiator.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,7 +150,7 @@
 		CF426229221564D300B0EF0F /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				CFDFF7142173A15A00205BDF /* View Controllers */,
+				CFDFF7142173A15A00205BDF /* Pages */,
 				CF43347D2187083200473B97 /* Cells */,
 				CFE08AD02189AC6500A86089 /* DetailAccessoryView */,
 			);
@@ -208,24 +212,24 @@
 				CFD5B7E8218B4D470047C521 /* viewModels.swift */,
 				CF88578921D6264400F96511 /* UserLocation.swift */,
 				CF3AABB321F7621500A626D2 /* DependencyContainer.swift */,
-				CF51E06A2216B27200194F54 /* MapViewModel.swift */,
 			);
 			path = Elements;
 			sourceTree = "<group>";
 		};
-		CFDFF7142173A15A00205BDF /* View Controllers */ = {
+		CFDFF7142173A15A00205BDF /* Pages */ = {
 			isa = PBXGroup;
 			children = (
 				CFE08ACE2189ABFE00A86089 /* Map */,
 				CFE08ACF2189AC1300A86089 /* PassTable */,
 				CF348A35218C53A4007A1F6F /* PassDetails */,
 			);
-			path = "View Controllers";
+			path = Pages;
 			sourceTree = "<group>";
 		};
 		CFE08ACE2189ABFE00A86089 /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				CF51E06A2216B27200194F54 /* MapViewModel.swift */,
 				CFDFF7152173A18E00205BDF /* MapViewController.swift */,
 				CFDFF7162173A18E00205BDF /* MapViewController.xib */,
 			);
@@ -235,10 +239,9 @@
 		CFE08ACF2189AC1300A86089 /* PassTable */ = {
 			isa = PBXGroup;
 			children = (
+				CF6531EF221ABA7300A86126 /* PassTableViewModel.swift */,
 				CFDFF7192173A1C500205BDF /* PassTableViewController.swift */,
 				CFDFF71A2173A1C500205BDF /* PassTableViewController.xib */,
-				CFE08ACC2189A45300A86089 /* PassTableDataSource.swift */,
-				CFE08AD12189ACBB00A86089 /* PassTableDelegate.swift */,
 			);
 			path = PassTable;
 			sourceTree = "<group>";
@@ -255,6 +258,8 @@
 		CFF501BB220EC9FE007DBFF8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CF3BC592221C073D0008E438 /* Differentiator.framework */,
+				CF3BC590221C07080008E438 /* RxDataSources.framework */,
 				CFF501BC220EC9FE007DBFF8 /* RxCocoa.framework */,
 				CFF501BD220EC9FE007DBFF8 /* RxSwift.framework */,
 			);
@@ -347,6 +352,8 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxDataSources.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Differentiator.framework",
 			);
 			name = "Carthage Copy Frameworks";
 			outputFileListPaths = (
@@ -364,9 +371,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CFE08AD22189ACBB00A86089 /* PassTableDelegate.swift in Sources */,
+				CF6531F0221ABA7300A86126 /* PassTableViewModel.swift in Sources */,
 				CF034B472181C259003ED8D0 /* DetailAccessoryView.swift in Sources */,
-				CFE08ACD2189A45300A86089 /* PassTableDataSource.swift in Sources */,
 				CF52BDD82210707500EB3EC5 /* MKDirections.swift in Sources */,
 				CF88578A21D6264400F96511 /* UserLocation.swift in Sources */,
 				CFD5B7EC218B4F5F0047C521 /* DataCell.swift in Sources */,
