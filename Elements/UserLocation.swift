@@ -40,7 +40,8 @@ class UserLocation {
     private func subscribeToLocationUpdate() {
         locationManager.rx.didUpdateLocations
             .map { $0[0] }
-            .filter { $0.horizontalAccuracy < kCLLocationAccuracyHundredMeters }
+            .debug("UserLocation.swift - didUpdateLocations")
+            //.filter { $0.horizontalAccuracy < kCLLocationAccuracyHundredMeters }
             .subscribe(onNext: { [weak self] newLocation in
                 self?.locationRelay.accept(newLocation)
                 
