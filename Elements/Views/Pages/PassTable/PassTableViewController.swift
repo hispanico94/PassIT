@@ -59,16 +59,6 @@ class PassTableViewController: UITableViewController {
             })
             .disposed(by: disposeBag)
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.navigationBar.prefersLargeTitles = true
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        navigationController?.navigationBar.prefersLargeTitles = false
-    }
 }
 
 

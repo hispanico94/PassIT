@@ -7,7 +7,7 @@ struct PassTableViewModel {
     private let factory: ViewControllerFactory
     private weak var navigationController: UINavigationController?
     
-    init(passes: [Pass], factory: ViewControllerFactory, navigationController: UINavigationController) {
+    init(passes: [Pass], factory: ViewControllerFactory, navigationController: UINavigationController?) {
         self.passes = passes
         self.factory = factory
         self.navigationController = navigationController

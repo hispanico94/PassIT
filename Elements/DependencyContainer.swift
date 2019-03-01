@@ -15,12 +15,8 @@ protocol ViewControllerFactory {
 extension DependencyContainer: ViewControllerFactory {
     func makeInitialViewControllers() -> UIViewController {
         let navigationController = UINavigationController()
-        navigationController.viewControllers = [makePassTableViewController(navigationController: navigationController)]
-        
-        let tabBarController = UITabBarController()
-        tabBarController.viewControllers = [makeMapViewController(), navigationController]
-        
-        return tabBarController
+        navigationController.viewControllers = [makeMainViewController(navigationController: navigationController)]
+        return navigationController
     }
     
     func makePassDetailsViewController(with pass: Pass) -> PassDetailsViewController {
@@ -30,15 +26,18 @@ extension DependencyContainer: ViewControllerFactory {
     private func makeMapViewController() -> MapViewController {
         let mapViewModel = MapViewModel(passes: passes, userLocation: userLocation.lastLocation)
         let mapViewController = MapViewController(viewModel: mapViewModel)
-        mapViewController.tabBarItem = UITabBarItem(title: "Map", image: UIImage(named: "map_tab_bar_icon"), tag: 0)
         return mapViewController
     }
     
-    private func makePassTableViewController(navigationController: UINavigationController) -> PassTableViewController {
+    private func makePassTableViewController(navigationController: UINavigationController?) -> PassTableViewController {
         let viewModel = PassTableViewModel(passes: passes, factory: self, navigationController: navigationController)
         let passTableViewController = PassTableViewController(viewModel: viewModel)
-        passTableViewController.title = "Passes and Peaks"
-        passTableViewController.tabBarItem = UITabBarItem(title: "List", image: UIImage(named: "list_tab_bar_icon"), tag: 1)
         return passTableViewController
+    }
+    
+    private  func makeMainViewController(navigationController: UINavigationController) -> MainViewController {
+        let mapVC = makeMapViewController()
+        let passTableVC = makePassTableViewController(navigationController: navigationController)
+        return MainViewController(mapViewController: mapVC, passTableViewController: passTableVC)
     }
 }
