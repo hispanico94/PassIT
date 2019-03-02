@@ -30,6 +30,8 @@
 		CF644E052211C78600585651 /* CLLocationManager+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF644E042211C78600585651 /* CLLocationManager+Rx.swift */; };
 		CF6531F0221ABA7300A86126 /* PassTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6531EF221ABA7300A86126 /* PassTableViewModel.swift */; };
 		CF88578A21D6264400F96511 /* UserLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF88578921D6264400F96511 /* UserLocation.swift */; };
+		CF979104222A79C200BC4ED3 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF979103222A79C200BC4ED3 /* MainCoordinator.swift */; };
+		CF979106222A83A300BC4ED3 /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF979105222A83A300BC4ED3 /* Factory.swift */; };
 		CFA4142E222996870080570F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA4142C222996870080570F /* MainViewController.swift */; };
 		CFA4142F222996870080570F /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFA4142D222996870080570F /* MainViewController.xib */; };
 		CFD094CA217CC8F600D350F1 /* JsonFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD094C9217CC8F600D350F1 /* JsonFile.swift */; };
@@ -76,6 +78,8 @@
 		CF644E042211C78600585651 /* CLLocationManager+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationManager+Rx.swift"; sourceTree = "<group>"; };
 		CF6531EF221ABA7300A86126 /* PassTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassTableViewModel.swift; sourceTree = "<group>"; };
 		CF88578921D6264400F96511 /* UserLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocation.swift; sourceTree = "<group>"; };
+		CF979103222A79C200BC4ED3 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		CF979105222A83A300BC4ED3 /* Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
 		CFA4142C222996870080570F /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		CFA4142D222996870080570F /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		CFD094C9217CC8F600D350F1 /* JsonFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonFile.swift; sourceTree = "<group>"; };
@@ -227,6 +231,8 @@
 				CFD5B7E8218B4D470047C521 /* viewModels.swift */,
 				CF88578921D6264400F96511 /* UserLocation.swift */,
 				CF3AABB321F7621500A626D2 /* DependencyContainer.swift */,
+				CF979103222A79C200BC4ED3 /* MainCoordinator.swift */,
+				CF979105222A83A300BC4ED3 /* Factory.swift */,
 			);
 			path = Elements;
 			sourceTree = "<group>";
@@ -391,6 +397,7 @@
 				CF52BDD82210707500EB3EC5 /* MKDirections.swift in Sources */,
 				CF88578A21D6264400F96511 /* UserLocation.swift in Sources */,
 				CFD5B7EC218B4F5F0047C521 /* DataCell.swift in Sources */,
+				CF979106222A83A300BC4ED3 /* Factory.swift in Sources */,
 				CF51E06B2216B27200194F54 /* MapViewModel.swift in Sources */,
 				CFD36AFC217A19090025BB34 /* Pass.swift in Sources */,
 				CF3AABB421F7621500A626D2 /* DependencyContainer.swift in Sources */,
@@ -409,6 +416,7 @@
 				CF0868F5221335340011BFDB /* MKMapView+Rx.swift in Sources */,
 				CF354635217E12D300759A84 /* Measurement.swift in Sources */,
 				CFD5B7F0218B51DD0047C521 /* MapCell.swift in Sources */,
+				CF979104222A79C200BC4ED3 /* MainCoordinator.swift in Sources */,
 				CF549EAB220ED26F00133286 /* MKDirections+Rx.swift in Sources */,
 				CF4E3FA321E0B4050019EBC0 /* DistanceAndTravelTimeCell.swift in Sources */,
 			);

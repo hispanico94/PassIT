@@ -5,39 +5,30 @@ class DependencyContainer {
     private lazy var userLocation = UserLocation()
 }
 
-protocol ViewControllerFactory {
-    func makeInitialViewControllers() -> UIViewController
-    func makePassDetailsViewController(with pass: Pass) -> PassDetailsViewController
-}
-
-
+// MARK: - ViewControllerFactory conformance
 
 extension DependencyContainer: ViewControllerFactory {
-    func makeInitialViewControllers() -> UIViewController {
-        let navigationController = UINavigationController()
-        navigationController.viewControllers = [makeMainViewController(navigationController: navigationController)]
-        return navigationController
+    func makeMainViewController(navigationController: UINavigationController, mapViewModel: MapViewModel, passTableViewModel: PassTableViewModel) -> MainViewController {
+        let mapVC = MapViewController(viewModel: mapViewModel)
+        let passTableVC = PassTableViewController(viewModel: passTableViewModel)
+        return MainViewController(mapViewController: mapVC, passTableViewController: passTableVC)
     }
     
     func makePassDetailsViewController(with pass: Pass) -> PassDetailsViewController {
         return PassDetailsViewController(pass: pass, userLocation: userLocation.lastLocation)
     }
-    
-    private func makeMapViewController() -> MapViewController {
-        let mapViewModel = MapViewModel(passes: passes, userLocation: userLocation.lastLocation)
-        let mapViewController = MapViewController(viewModel: mapViewModel)
-        return mapViewController
+}
+
+// MARK: - ViewModelFactory conformance
+
+extension DependencyContainer: ViewModelFactory {
+    func makeMapViewModel() -> MapViewModel {
+        return MapViewModel(passes: passes, userLocation: userLocation.lastLocation)
     }
     
-    private func makePassTableViewController(navigationController: UINavigationController?) -> PassTableViewController {
-        let viewModel = PassTableViewModel(passes: passes, factory: self, navigationController: navigationController)
-        let passTableViewController = PassTableViewController(viewModel: viewModel)
-        return passTableViewController
+    func makePassTableViewModel(navigationController: UINavigationController, passSelectionHandler: ((Pass) -> Void)?) -> PassTableViewModel {
+        return PassTableViewModel(passes: passes, navigationController: navigationController, passSelectionHandler: passSelectionHandler)
     }
     
-    private  func makeMainViewController(navigationController: UINavigationController) -> MainViewController {
-        let mapVC = makeMapViewController()
-        let passTableVC = makePassTableViewController(navigationController: navigationController)
-        return MainViewController(mapViewController: mapVC, passTableViewController: passTableVC)
-    }
+    
 }
