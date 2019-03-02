@@ -4,13 +4,12 @@ import RxDataSources
 
 struct PassTableViewModel {
     private let passes: [Pass]
-    private let passSelectionHandler: ((Pass) -> Void)?
     private weak var navigationController: UINavigationController?
     
-    init(passes: [Pass], navigationController: UINavigationController, passSelectionHandler: ((Pass) -> Void)?) {
+    init(passes: [Pass], navigationController: UINavigationController, passSelected: AnyObserver<Pass>) {
         self.passes = passes
-        self.passSelectionHandler = passSelectionHandler
         self.navigationController = navigationController
+        self.passSelected = passSelected
     }
     
     // Outputs
@@ -21,9 +20,7 @@ struct PassTableViewModel {
     
     // Inputs
     
-    func passSelected(_ pass: Pass) {
-        passSelectionHandler?(pass)
-    }
+    var passSelected: AnyObserver<Pass>
     
     // Private methods
     

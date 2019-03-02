@@ -53,10 +53,13 @@ class PassTableViewController: UITableViewController {
             .bind(to: tableView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
         
+//        tableView.rx.modelSelected(Pass.self)
+//            .subscribe(onNext: { [weak self] pass in
+//                self?.viewModel.passSelected(pass)
+//            })
+//            .disposed(by: disposeBag)
         tableView.rx.modelSelected(Pass.self)
-            .subscribe(onNext: { [weak self] pass in
-                self?.viewModel.passSelected(pass)
-            })
+            .bind(to: viewModel.passSelected)
             .disposed(by: disposeBag)
     }
 }

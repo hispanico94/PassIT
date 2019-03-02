@@ -1,4 +1,5 @@
 import UIKit
+import RxSwift
 
 protocol ViewControllerFactory {
     func makePassDetailsViewController(with pass: Pass) -> PassDetailsViewController
@@ -7,5 +8,5 @@ protocol ViewControllerFactory {
 
 protocol ViewModelFactory {
     func makeMapViewModel() -> MapViewModel
-    func makePassTableViewModel(navigationController: UINavigationController, passSelectionHandler: ((Pass) -> Void)?) -> PassTableViewModel
+    func makePassTableViewModel(navigationController: UINavigationController, passSelected: AnyObserver<Pass>) -> PassTableViewModel
 }

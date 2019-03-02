@@ -1,4 +1,5 @@
 import UIKit
+import RxSwift
 
 class DependencyContainer {
     private lazy var passes = JsonFile.getPasses()
@@ -26,8 +27,8 @@ extension DependencyContainer: ViewModelFactory {
         return MapViewModel(passes: passes, userLocation: userLocation.lastLocation)
     }
     
-    func makePassTableViewModel(navigationController: UINavigationController, passSelectionHandler: ((Pass) -> Void)?) -> PassTableViewModel {
-        return PassTableViewModel(passes: passes, navigationController: navigationController, passSelectionHandler: passSelectionHandler)
+    func makePassTableViewModel(navigationController: UINavigationController, passSelected: AnyObserver<Pass>) -> PassTableViewModel {
+        return PassTableViewModel(passes: passes, navigationController: navigationController, passSelected: passSelected)
     }
     
     
