@@ -209,6 +209,8 @@
 			children = (
 				CFA4142C222996870080570F /* MainViewController.swift */,
 				CFA4142D222996870080570F /* MainViewController.xib */,
+				CFE08ACE2189ABFE00A86089 /* Map */,
+				CFE08ACF2189AC1300A86089 /* PassTable */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -233,8 +235,6 @@
 			isa = PBXGroup;
 			children = (
 				CFA414302229968E0080570F /* Main */,
-				CFE08ACE2189ABFE00A86089 /* Map */,
-				CFE08ACF2189AC1300A86089 /* PassTable */,
 				CF348A35218C53A4007A1F6F /* PassDetails */,
 			);
 			path = Pages;
