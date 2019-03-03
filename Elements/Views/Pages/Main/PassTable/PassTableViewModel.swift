@@ -4,11 +4,9 @@ import RxDataSources
 
 struct PassTableViewModel {
     private let passes: [Pass]
-    private weak var navigationController: UINavigationController?
     
-    init(passes: [Pass], navigationController: UINavigationController, passSelected: AnyObserver<Pass>) {
+    init(passes: [Pass], passSelected: AnyObserver<Pass>) {
         self.passes = passes
-        self.navigationController = navigationController
         self.passSelected = passSelected
     }
     

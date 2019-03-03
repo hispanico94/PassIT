@@ -9,7 +9,7 @@ class DependencyContainer {
 // MARK: - ViewControllerFactory conformance
 
 extension DependencyContainer: ViewControllerFactory {
-    func makeMainViewController(navigationController: UINavigationController, mapViewModel: MapViewModel, passTableViewModel: PassTableViewModel) -> MainViewController {
+    func makeMainViewController(mapViewModel: MapViewModel, passTableViewModel: PassTableViewModel) -> MainViewController {
         let mapVC = MapViewController(viewModel: mapViewModel)
         let passTableVC = PassTableViewController(viewModel: passTableViewModel)
         return MainViewController(mapViewController: mapVC, passTableViewController: passTableVC)
@@ -27,8 +27,8 @@ extension DependencyContainer: ViewModelFactory {
         return MapViewModel(passes: passes, userLocation: userLocation.lastLocation)
     }
     
-    func makePassTableViewModel(navigationController: UINavigationController, passSelected: AnyObserver<Pass>) -> PassTableViewModel {
-        return PassTableViewModel(passes: passes, navigationController: navigationController, passSelected: passSelected)
+    func makePassTableViewModel(passSelected: AnyObserver<Pass>) -> PassTableViewModel {
+        return PassTableViewModel(passes: passes, passSelected: passSelected)
     }
     
     
