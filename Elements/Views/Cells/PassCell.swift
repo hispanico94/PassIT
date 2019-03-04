@@ -15,15 +15,20 @@ class PassCell: UITableViewCell {
         return self
     }
     
+    override func prepareForReuse() {
+        pass = nil
+        self.textLabel?.text = nil
+        self.detailTextLabel?.text = nil
+        self.imageView?.image = nil
+    }
+    
     private func setTextLabel() {
         self.textLabel?.text = pass?.name
     }
     
     private func setDetailTextLabel() {
         if let elevation = pass?.elevation {
-            self.detailTextLabel?.text = "\(elevation.integerDescription) - \(pass!.address.region.rawValue)"
-        } else {
-            self.detailTextLabel?.text = pass?.address.region.rawValue
+            self.detailTextLabel?.text = "\(elevation.integerDescription)"
         }
     }
     
