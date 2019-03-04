@@ -28,13 +28,8 @@ struct MapViewModel {
             }
     }
     
-    var annotations: Observable<[MKAnnotation]> {
-        return Observable.create { observer in
-            let annotations = self.passes.map(PassAnnotation.init)
-            observer.onNext(annotations)
-            observer.onCompleted()
-            return Disposables.create()
-        }
+    var items: Observable<[Pass]> {
+        return Observable.just(passes)
     }
     
 }

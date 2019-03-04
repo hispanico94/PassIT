@@ -1,7 +1,7 @@
 import MapKit
 
 class PassAnnotation: NSObject, MKAnnotation {
-    private let pass: Pass
+    let pass: Pass
     
     var coordinate: CLLocationCoordinate2D {
         return pass.coordinates
@@ -79,15 +79,19 @@ class PassMarkerView: MKMarkerAnnotationView {
             
             markerTintColor = pass.color
             
-            if let views = Bundle.main.loadNibNamed("DetailAccessoryView", owner: self, options: nil) as? [DetailAccessoryView], views.count > 0 {
-                let detailAccessoryView = views.first!
-                detailAccessoryView.configure(elevation: pass.subtitle, address: pass.address, coordinates: pass.coordinate)
-                detailCalloutAccessoryView = detailAccessoryView
-            }
-            
             if let icon = pass.icon {
                 glyphImage = UIImage(named: icon)
             }
+            
+            canShowCallout = true
+            
+            rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+            
+//            if let views = Bundle.main.loadNibNamed("DetailAccessoryView", owner: self, options: nil) as? [DetailAccessoryView], views.count > 0 {
+//                let detailAccessoryView = views.first!
+//                detailAccessoryView.configure(elevation: pass.subtitle, address: pass.address, coordinates: pass.coordinate)
+//                detailCalloutAccessoryView = detailAccessoryView
+//            }
         }
     }
 }

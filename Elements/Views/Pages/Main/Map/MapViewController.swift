@@ -31,12 +31,19 @@ class MapViewController: UIViewController {
     }
     
     private func bindViewModel() {
-        viewModel.annotations
+        viewModel.items
+            .map { $0.map(PassAnnotation.init) }
             .bind(to: mapView.rx.annotations)
             .disposed(by: disposeBag)
         
         viewModel.initialMapRegion
             .bind(to: mapView.rx.region)
+            .disposed(by: disposeBag)
+        
+        mapView.rx.annotationCalloutTapped(PassAnnotation.self)
+            .map { $0.pass }
+            .do(onNext: { print($0.name) })
+            .subscribe()
             .disposed(by: disposeBag)
     }
 }
