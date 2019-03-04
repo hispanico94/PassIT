@@ -119,9 +119,9 @@
 			isa = PBXGroup;
 			children = (
 				CF1722722173448F009E3577 /* PassIT */,
-				CF1722712173448F009E3577 /* Products */,
 				CFDFF7132173A14B00205BDF /* Elements */,
 				CFF501BB220EC9FE007DBFF8 /* Frameworks */,
+				CF1722712173448F009E3577 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
