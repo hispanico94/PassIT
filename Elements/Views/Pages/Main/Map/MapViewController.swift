@@ -6,12 +6,16 @@ class MapViewController: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
     
-    let viewModel: MapViewModel
+    private let items: Observable<[Pass]>
+    private let initialMapRegion: Observable<MKCoordinateRegion>
+    private let passSelected: AnyObserver<Pass>
     
-    let disposeBag = DisposeBag()
+    private let disposeBag = DisposeBag()
     
-    init(viewModel: MapViewModel) {
-        self.viewModel = viewModel
+    init(items: Observable<[Pass]>, initialMapRegion: Observable<MKCoordinateRegion>, passSelected: AnyObserver<Pass>) {
+        self.items = items
+        self.initialMapRegion = initialMapRegion
+        self.passSelected = passSelected
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -27,23 +31,22 @@ class MapViewController: UIViewController {
         
         mapView.showsUserLocation = true
         
-        bindViewModel()
+        bindUI()
     }
     
-    private func bindViewModel() {
-        viewModel.items
+    private func bindUI() {
+        items
             .map { $0.map(PassAnnotation.init) }
             .bind(to: mapView.rx.annotations)
             .disposed(by: disposeBag)
         
-        viewModel.initialMapRegion
+        initialMapRegion
             .bind(to: mapView.rx.region)
             .disposed(by: disposeBag)
         
         mapView.rx.annotationCalloutTapped(PassAnnotation.self)
             .map { $0.pass }
-            .do(onNext: { print($0.name) })
-            .subscribe()
+            .bind(to: passSelected)
             .disposed(by: disposeBag)
     }
 }

@@ -4,14 +4,17 @@ import RxCocoa
 import RxSwift
 
 class PassTableViewController: UITableViewController {
-    let viewModel: PassTableViewModel
     
-    var dataSource: RxTableViewSectionedReloadDataSource<PassTableSection>!
+    private var dataSource: RxTableViewSectionedReloadDataSource<PassTableSection>!
     
-    let disposeBag = DisposeBag()
+    private let sectionedItems: Observable<[PassTableSection]>
+    private let passSelected: AnyObserver<Pass>
     
-    init(viewModel: PassTableViewModel) {
-        self.viewModel = viewModel
+    private let disposeBag = DisposeBag()
+    
+    init(sectionedItems: Observable<[PassTableSection]>, passSelected: AnyObserver<Pass>) {
+        self.sectionedItems = sectionedItems
+        self.passSelected = passSelected
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -49,17 +52,12 @@ class PassTableViewController: UITableViewController {
     }
     
     private func bindUI() {
-        viewModel.sectionedItems
+        sectionedItems
             .bind(to: tableView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
         
-//        tableView.rx.modelSelected(Pass.self)
-//            .subscribe(onNext: { [weak self] pass in
-//                self?.viewModel.passSelected(pass)
-//            })
-//            .disposed(by: disposeBag)
         tableView.rx.modelSelected(Pass.self)
-            .bind(to: viewModel.passSelected)
+            .bind(to: passSelected)
             .disposed(by: disposeBag)
     }
 }

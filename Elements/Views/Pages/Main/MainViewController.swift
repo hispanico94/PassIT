@@ -1,4 +1,5 @@
 import UIKit
+import RxSwift
 
 class MainViewController: UIViewController {
 
@@ -6,10 +7,27 @@ class MainViewController: UIViewController {
     private let mapViewController: MapViewController
     private let passTableViewController: PassTableViewController
     
+    private let viewModel: MainViewModel
     
-    init(mapViewController: MapViewController, passTableViewController: PassTableViewController) {
-        self.mapViewController = mapViewController
-        self.passTableViewController = passTableViewController
+    private let mapPassSelected = PublishSubject<Pass>()
+    private let tablePassSelected = PublishSubject<Pass>()
+    
+    private let disposeBag = DisposeBag()
+    
+    init(viewModel: MainViewModel) {
+        self.viewModel = viewModel
+        
+        self.mapViewController = MapViewController(
+            items: viewModel.items,
+            initialMapRegion: viewModel.initialMapRegion,
+            passSelected: mapPassSelected.asObserver()
+        )
+        
+        self.passTableViewController = PassTableViewController(
+            sectionedItems: viewModel.sectionedItems,
+            passSelected: tablePassSelected.asObserver()
+        )
+        
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -22,6 +40,15 @@ class MainViewController: UIViewController {
         
         setupSegmentedControl()
         updateView()
+        
+        bindPassSelection()
+    }
+    
+    private func bindPassSelection() {
+        Observable
+            .merge(mapPassSelected.asObservable(), tablePassSelected.asObservable())
+            .bind(to: viewModel.passSelected)
+            .disposed(by: disposeBag)
     }
     
     private func setupSegmentedControl() {

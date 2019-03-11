@@ -21,10 +21,9 @@ class MainCoordinator: Coordinator {
     }
     
     func start() {
-        let mapViewModel = factory.makeMapViewModel()
-        let passTableViewModel = factory.makePassTableViewModel(passSelected: passSelected.asObserver())
-        let mainVC = factory.makeMainViewController(mapViewModel: mapViewModel,
-                                                    passTableViewModel: passTableViewModel)
+        let mainViewModel = factory.makeMainViewModel(passSelected: passSelected.asObserver())
+        let mainVC = factory.makeMainViewController(mainViewModel: mainViewModel)
+        
         bindPassSelection()
         
         navigationController.pushViewController(mainVC, animated: false)
