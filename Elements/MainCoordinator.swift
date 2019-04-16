@@ -2,14 +2,12 @@ import UIKit
 import RxSwift
 
 protocol Coordinator {
-    var children: [Coordinator] { get set }
     var navigationController: UINavigationController { get set }
     
     func start()
 }
 
 class MainCoordinator: Coordinator {
-    var children = [Coordinator]()
     var navigationController: UINavigationController
     private let factory: ViewModelFactory & ViewControllerFactory = DependencyContainer()
     

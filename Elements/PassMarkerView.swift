@@ -61,9 +61,6 @@ class PassAnnotation: NSObject, MKAnnotation {
             return "peak_icon"
         }
     }
-    var address: String {
-        return "\(pass.address.road), \(pass.address.municipality) (\(pass.address.province))"
-    }
     
     init(pass: Pass) {
         self.pass = pass
@@ -86,12 +83,6 @@ class PassMarkerView: MKMarkerAnnotationView {
             canShowCallout = true
             
             rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
-            
-//            if let views = Bundle.main.loadNibNamed("DetailAccessoryView", owner: self, options: nil) as? [DetailAccessoryView], views.count > 0 {
-//                let detailAccessoryView = views.first!
-//                detailAccessoryView.configure(elevation: pass.subtitle, address: pass.address, coordinates: pass.coordinate)
-//                detailCalloutAccessoryView = detailAccessoryView
-//            }
         }
     }
 }

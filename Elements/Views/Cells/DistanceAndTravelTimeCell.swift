@@ -60,24 +60,22 @@ class DistanceAndTravelTimeCell: UITableViewCell {
             .map { [weak self] location in
                 return makeDirectionRequest(from: location.coordinate, to: self?.pass.coordinates)
             }
-            .filter { $0 != nil }
-            .map { $0! }
+            .compactMap { $0 }
             .flatMap { request in
                 return MKDirections(request: request).rx
                     .calculateETA
-                    .map(distanceAndTravelTime(_:))
-                    .map(formatStrings(distance:travelTime:))
+                    .map(distanceAndTravelTime(_:) >>> formatStrings(distance:travelTime:))
             }
             .observeOn(MainScheduler.instance)
             .share()
         
         distanceAndTime
-            .map { $0.distance }
+            .map(^\.distance)
             .bind(to: distanceLabel.rx.text)
             .disposed(by: disposeBag)
         
         distanceAndTime
-            .map { $0.travelTime }
+            .map(^\.time)
             .bind(to: timeLabel.rx.text)
             .disposed(by: disposeBag)
         
@@ -131,28 +129,28 @@ private func distanceAndTravelTime(_ response: MKDirections.ETAResponse) -> (CLL
     return (response.distance, response.expectedTravelTime)
 }
 
-private func formatStrings(distance: CLLocationDistance, travelTime: TimeInterval) -> (distance: String, travelTime: String) {
+private func formatStrings(distance: CLLocationDistance, travelTime: TimeInterval) -> TravelInfo {
+    let travelDistance = Measurement(value: distance, unit: UnitLength.meters).converted(to: .kilometers)
     
-    func formatDistance(from distance: CLLocationDistance) -> String {
-        let distanceInKm = Measurement(value: distance, unit: UnitLength.meters).converted(to: .kilometers)
-        let formatter = MeasurementFormatter()
-        formatter.unitOptions = .providedUnit
-        
-        let numberFormatter = NumberFormatter()
-        numberFormatter.numberStyle = .none
-        
-        formatter.numberFormatter = numberFormatter
-        
-        return formatter.string(from: distanceInKm)
-    }
+    let distanceString = travelDistanceFormatter.string(from: travelDistance)
+    let travelTimeString = travelTimeFormatter.string(from: travelTime)!
     
-    func formatTime(from time: TimeInterval) -> String! {
-        let formatter = DateComponentsFormatter()
-        formatter.allowedUnits = [.hour, .minute]
-        formatter.unitsStyle = .abbreviated
-        formatter.zeroFormattingBehavior = .dropAll
-        return formatter.string(from: time)
-    }
-    
-    return (distance: formatDistance(from: distance), travelTime: formatTime(from: travelTime))
+    return TravelInfo(distance: distanceString, time: travelTimeString)
+}
+
+private let travelDistanceFormatter = MeasurementFormatter()
+    |> (prop(\.unitOptions)) { _ in .providedUnit}
+    <> (prop(\.numberFormatter)) { _ in
+        return NumberFormatter()
+            |> (prop(\.numberStyle)) { _ in .none }
+}
+
+private let travelTimeFormatter = DateComponentsFormatter()
+    |> (prop(\.allowedUnits)) { _ in [.hour, .minute] }
+    <> (prop(\.unitsStyle)) { _ in .abbreviated }
+    <> (prop(\.zeroFormattingBehavior)) { _ in .dropAll }
+
+private struct TravelInfo {
+    let distance: String
+    let time: String
 }

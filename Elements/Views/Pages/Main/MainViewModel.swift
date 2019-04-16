@@ -47,7 +47,7 @@ struct MainViewModel {
     
     private func getSectionedItems() -> [PassTableSection] {
         return Region.allCases
-            .sorted { $0.rawValue < $1.rawValue }
+            .sorted(by: their(^\Region.rawValue))
             .map { region in
                 let passesOfRegion = passes.filter { $0.address.region == region }
                 return PassTableSection(passes: passesOfRegion, title: region)

@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CF034B472181C259003ED8D0 /* DetailAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF034B462181C259003ED8D0 /* DetailAccessoryView.swift */; };
-		CF034B492181C26C003ED8D0 /* DetailAccessoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF034B482181C26C003ED8D0 /* DetailAccessoryView.xib */; };
 		CF0868F5221335340011BFDB /* MKMapView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0868F4221335340011BFDB /* MKMapView+Rx.swift */; };
 		CF1722742173448F009E3577 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1722732173448F009E3577 /* AppDelegate.swift */; };
 		CF17227B21734490009E3577 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF17227A21734490009E3577 /* Assets.xcassets */; };
@@ -20,6 +18,7 @@
 		CF3AABB421F7621500A626D2 /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3AABB321F7621500A626D2 /* DependencyContainer.swift */; };
 		CF3BC591221C07080008E438 /* RxDataSources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF3BC590221C07080008E438 /* RxDataSources.framework */; };
 		CF3BC593221C073D0008E438 /* Differentiator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF3BC592221C073D0008E438 /* Differentiator.framework */; };
+		CF426DD92260D236009D3C5D /* ObservableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF426DD82260D236009D3C5D /* ObservableType.swift */; };
 		CF43347B2187082600473B97 /* PassCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4334792187082600473B97 /* PassCell.swift */; };
 		CF43347C2187082600473B97 /* PassCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF43347A2187082600473B97 /* PassCell.xib */; };
 		CF4E3FA321E0B4050019EBC0 /* DistanceAndTravelTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4E3FA121E0B4050019EBC0 /* DistanceAndTravelTimeCell.swift */; };
@@ -27,6 +26,7 @@
 		CF52BDD82210707500EB3EC5 /* MKDirections.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF52BDD72210707500EB3EC5 /* MKDirections.swift */; };
 		CF549EAB220ED26F00133286 /* MKDirections+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF549EAA220ED26F00133286 /* MKDirections+Rx.swift */; };
 		CF644E052211C78600585651 /* CLLocationManager+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF644E042211C78600585651 /* CLLocationManager+Rx.swift */; };
+		CF76F7CC225E36A700A6240F /* Functional Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF76F7CB225E36A700A6240F /* Functional Helpers.swift */; };
 		CF88578A21D6264400F96511 /* UserLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF88578921D6264400F96511 /* UserLocation.swift */; };
 		CF979104222A79C200BC4ED3 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF979103222A79C200BC4ED3 /* MainCoordinator.swift */; };
 		CF979106222A83A300BC4ED3 /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF979105222A83A300BC4ED3 /* Factory.swift */; };
@@ -53,8 +53,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		CF034B462181C259003ED8D0 /* DetailAccessoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAccessoryView.swift; sourceTree = "<group>"; };
-		CF034B482181C26C003ED8D0 /* DetailAccessoryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailAccessoryView.xib; sourceTree = "<group>"; };
 		CF0868F4221335340011BFDB /* MKMapView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKMapView+Rx.swift"; sourceTree = "<group>"; };
 		CF1722702173448F009E3577 /* PassIT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PassIT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF1722732173448F009E3577 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -68,6 +66,7 @@
 		CF3AABB321F7621500A626D2 /* DependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyContainer.swift; sourceTree = "<group>"; };
 		CF3BC590221C07080008E438 /* RxDataSources.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxDataSources.framework; path = Carthage/Build/iOS/RxDataSources.framework; sourceTree = "<group>"; };
 		CF3BC592221C073D0008E438 /* Differentiator.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Differentiator.framework; path = Carthage/Build/iOS/Differentiator.framework; sourceTree = "<group>"; };
+		CF426DD82260D236009D3C5D /* ObservableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableType.swift; sourceTree = "<group>"; };
 		CF4334792187082600473B97 /* PassCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassCell.swift; sourceTree = "<group>"; };
 		CF43347A2187082600473B97 /* PassCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PassCell.xib; sourceTree = "<group>"; };
 		CF4E3FA121E0B4050019EBC0 /* DistanceAndTravelTimeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceAndTravelTimeCell.swift; sourceTree = "<group>"; };
@@ -75,6 +74,7 @@
 		CF52BDD72210707500EB3EC5 /* MKDirections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKDirections.swift; sourceTree = "<group>"; };
 		CF549EAA220ED26F00133286 /* MKDirections+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKDirections+Rx.swift"; sourceTree = "<group>"; };
 		CF644E042211C78600585651 /* CLLocationManager+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationManager+Rx.swift"; sourceTree = "<group>"; };
+		CF76F7CB225E36A700A6240F /* Functional Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Functional Helpers.swift"; sourceTree = "<group>"; };
 		CF88578921D6264400F96511 /* UserLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocation.swift; sourceTree = "<group>"; };
 		CF979103222A79C200BC4ED3 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		CF979105222A83A300BC4ED3 /* Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
@@ -160,7 +160,6 @@
 			children = (
 				CFDFF7142173A15A00205BDF /* Pages */,
 				CF43347D2187083200473B97 /* Cells */,
-				CFE08AD02189AC6500A86089 /* DetailAccessoryView */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -194,6 +193,7 @@
 			children = (
 				CF52BDD72210707500EB3EC5 /* MKDirections.swift */,
 				CF354634217E12D300759A84 /* Measurement.swift */,
+				CF426DD82260D236009D3C5D /* ObservableType.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -234,6 +234,7 @@
 				CF3AABB321F7621500A626D2 /* DependencyContainer.swift */,
 				CF979103222A79C200BC4ED3 /* MainCoordinator.swift */,
 				CF979105222A83A300BC4ED3 /* Factory.swift */,
+				CF76F7CB225E36A700A6240F /* Functional Helpers.swift */,
 			);
 			path = Elements;
 			sourceTree = "<group>";
@@ -264,15 +265,6 @@
 				CFDFF71A2173A1C500205BDF /* PassTableViewController.xib */,
 			);
 			path = PassTable;
-			sourceTree = "<group>";
-		};
-		CFE08AD02189AC6500A86089 /* DetailAccessoryView */ = {
-			isa = PBXGroup;
-			children = (
-				CF034B462181C259003ED8D0 /* DetailAccessoryView.swift */,
-				CF034B482181C26C003ED8D0 /* DetailAccessoryView.xib */,
-			);
-			path = DetailAccessoryView;
 			sourceTree = "<group>";
 		};
 		CFF501BB220EC9FE007DBFF8 /* Frameworks */ = {
@@ -319,6 +311,7 @@
 				TargetAttributes = {
 					CF17226F2173448F009E3577 = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1020;
 					};
 				};
 			};
@@ -350,7 +343,6 @@
 				CF4E3FA421E0B4050019EBC0 /* DistanceAndTravelTimeCell.xib in Resources */,
 				CF348A39218C53D6007A1F6F /* PassDetailsViewController.xib in Resources */,
 				CFDFF7182173A18E00205BDF /* MapViewController.xib in Resources */,
-				CF034B492181C26C003ED8D0 /* DetailAccessoryView.xib in Resources */,
 				CFD094CE217CD38100D350F1 /* Passes.json in Resources */,
 				CFA4142F222996870080570F /* MainViewController.xib in Resources */,
 				CFDFF71C2173A1C500205BDF /* PassTableViewController.xib in Resources */,
@@ -392,7 +384,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CF034B472181C259003ED8D0 /* DetailAccessoryView.swift in Sources */,
 				CF52BDD82210707500EB3EC5 /* MKDirections.swift in Sources */,
 				CF88578A21D6264400F96511 /* UserLocation.swift in Sources */,
 				CFD5B7EC218B4F5F0047C521 /* DataCell.swift in Sources */,
@@ -417,7 +408,9 @@
 				CF354635217E12D300759A84 /* Measurement.swift in Sources */,
 				CFD5B7F0218B51DD0047C521 /* MapCell.swift in Sources */,
 				CF979104222A79C200BC4ED3 /* MainCoordinator.swift in Sources */,
+				CF76F7CC225E36A700A6240F /* Functional Helpers.swift in Sources */,
 				CF549EAB220ED26F00133286 /* MKDirections+Rx.swift in Sources */,
+				CF426DD92260D236009D3C5D /* ObservableType.swift in Sources */,
 				CF4E3FA321E0B4050019EBC0 /* DistanceAndTravelTimeCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -569,7 +562,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = PaoloRocca.PassIT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -591,7 +584,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = PaoloRocca.PassIT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

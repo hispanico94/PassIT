@@ -3,9 +3,9 @@ import MapKit
 extension MKDirections.Request {
     static func drivingDirections(from source: MKPlacemark, to destination: MKPlacemark) -> MKDirections.Request {
         let directionRequest = MKDirections.Request()
-        directionRequest.source = MKMapItem(placemark: source)
-        directionRequest.destination = MKMapItem(placemark: destination)
-        directionRequest.transportType = .automobile
+            |> (prop(\MKDirections.Request.source)) { _ in MKMapItem(placemark: source) }
+            <> (prop(\MKDirections.Request.destination)) { _ in MKMapItem(placemark: destination)}
+            <> (prop(\MKDirections.Request.transportType)) { _ in .automobile }
         
         return directionRequest
     }

@@ -3,7 +3,9 @@ import RxSwift
 import RxCocoa
 
 class UserLocation {
-    private let locationManager: CLLocationManager
+    private let locationManager = CLLocationManager()
+        |> (prop(\.desiredAccuracy)) { _ in kCLLocationAccuracyHundredMeters}
+        <> (prop(\.distanceFilter)) { _ in 100 }
     
     private var isLocalizationAuthorizedWhenInUse: Bool {
         return CLLocationManager.authorizationStatus() == .authorizedWhenInUse
@@ -11,8 +13,7 @@ class UserLocation {
     
     var lastLocation: Observable<CLLocation> {
         return locationRelay
-            .filter { $0 != nil }
-            .map { $0! }
+            .compactMap { $0 }
             .asObservable()
             .share()
     }
@@ -22,11 +23,6 @@ class UserLocation {
     private let disposeBag = DisposeBag()
     
     init() {
-        locationManager = CLLocationManager()
-        
-        locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
-        locationManager.distanceFilter = 100
-        
         subscribeToLocationUpdate()
         subscribeToErrors()
         
@@ -40,8 +36,6 @@ class UserLocation {
     private func subscribeToLocationUpdate() {
         locationManager.rx.didUpdateLocations
             .map { $0[0] }
-            .debug("UserLocation.swift - didUpdateLocations")
-            //.filter { $0.horizontalAccuracy < kCLLocationAccuracyHundredMeters }
             .subscribe(onNext: { [weak self] newLocation in
                 self?.locationRelay.accept(newLocation)
                 
