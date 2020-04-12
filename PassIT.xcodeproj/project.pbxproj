@@ -11,6 +11,11 @@
 		CF1722742173448F009E3577 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1722732173448F009E3577 /* AppDelegate.swift */; };
 		CF17227B21734490009E3577 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF17227A21734490009E3577 /* Assets.xcassets */; };
 		CF17227E21734490009E3577 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF17227C21734490009E3577 /* LaunchScreen.storyboard */; };
+		CF190FCB226B5F1500618F77 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF190FCA226B5F1500618F77 /* Operators.swift */; };
+		CF190FCD226B603F00618F77 /* Curry Flip Zurry.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF190FCC226B603F00618F77 /* Curry Flip Zurry.swift */; };
+		CF190FCF226B607400618F77 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF190FCE226B607400618F77 /* Map.swift */; };
+		CF190FD1226B60F900618F77 /* Getters.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF190FD0226B60F900618F77 /* Getters.swift */; };
+		CF190FD3226B617F00618F77 /* Setters.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF190FD2226B617F00618F77 /* Setters.swift */; };
 		CF348A38218C53D6007A1F6F /* PassDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF348A36218C53D6007A1F6F /* PassDetailsViewController.swift */; };
 		CF348A39218C53D6007A1F6F /* PassDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF348A37218C53D6007A1F6F /* PassDetailsViewController.xib */; };
 		CF348A3B218C627A007A1F6F /* PassDetailsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF348A3A218C627A007A1F6F /* PassDetailsDataSource.swift */; };
@@ -26,7 +31,6 @@
 		CF52BDD82210707500EB3EC5 /* MKDirections.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF52BDD72210707500EB3EC5 /* MKDirections.swift */; };
 		CF549EAB220ED26F00133286 /* MKDirections+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF549EAA220ED26F00133286 /* MKDirections+Rx.swift */; };
 		CF644E052211C78600585651 /* CLLocationManager+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF644E042211C78600585651 /* CLLocationManager+Rx.swift */; };
-		CF76F7CC225E36A700A6240F /* Functional Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF76F7CB225E36A700A6240F /* Functional Helpers.swift */; };
 		CF88578A21D6264400F96511 /* UserLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF88578921D6264400F96511 /* UserLocation.swift */; };
 		CF979104222A79C200BC4ED3 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF979103222A79C200BC4ED3 /* MainCoordinator.swift */; };
 		CF979106222A83A300BC4ED3 /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF979105222A83A300BC4ED3 /* Factory.swift */; };
@@ -59,6 +63,11 @@
 		CF17227A21734490009E3577 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CF17227D21734490009E3577 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CF17227F21734490009E3577 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CF190FCA226B5F1500618F77 /* Operators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
+		CF190FCC226B603F00618F77 /* Curry Flip Zurry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Curry Flip Zurry.swift"; sourceTree = "<group>"; };
+		CF190FCE226B607400618F77 /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
+		CF190FD0226B60F900618F77 /* Getters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Getters.swift; sourceTree = "<group>"; };
+		CF190FD2226B617F00618F77 /* Setters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setters.swift; sourceTree = "<group>"; };
 		CF348A36218C53D6007A1F6F /* PassDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassDetailsViewController.swift; sourceTree = "<group>"; };
 		CF348A37218C53D6007A1F6F /* PassDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PassDetailsViewController.xib; sourceTree = "<group>"; };
 		CF348A3A218C627A007A1F6F /* PassDetailsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassDetailsDataSource.swift; sourceTree = "<group>"; };
@@ -74,7 +83,6 @@
 		CF52BDD72210707500EB3EC5 /* MKDirections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKDirections.swift; sourceTree = "<group>"; };
 		CF549EAA220ED26F00133286 /* MKDirections+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKDirections+Rx.swift"; sourceTree = "<group>"; };
 		CF644E042211C78600585651 /* CLLocationManager+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationManager+Rx.swift"; sourceTree = "<group>"; };
-		CF76F7CB225E36A700A6240F /* Functional Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Functional Helpers.swift"; sourceTree = "<group>"; };
 		CF88578921D6264400F96511 /* UserLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocation.swift; sourceTree = "<group>"; };
 		CF979103222A79C200BC4ED3 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		CF979105222A83A300BC4ED3 /* Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
@@ -143,6 +151,18 @@
 				CFD094CD217CD38100D350F1 /* Passes.json */,
 			);
 			path = PassIT;
+			sourceTree = "<group>";
+		};
+		CF190FC9226B5EF900618F77 /* Functional Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				CF190FCA226B5F1500618F77 /* Operators.swift */,
+				CF190FCC226B603F00618F77 /* Curry Flip Zurry.swift */,
+				CF190FCE226B607400618F77 /* Map.swift */,
+				CF190FD0226B60F900618F77 /* Getters.swift */,
+				CF190FD2226B617F00618F77 /* Setters.swift */,
+			);
+			path = "Functional Helpers";
 			sourceTree = "<group>";
 		};
 		CF348A35218C53A4007A1F6F /* PassDetails */ = {
@@ -234,7 +254,7 @@
 				CF3AABB321F7621500A626D2 /* DependencyContainer.swift */,
 				CF979103222A79C200BC4ED3 /* MainCoordinator.swift */,
 				CF979105222A83A300BC4ED3 /* Factory.swift */,
-				CF76F7CB225E36A700A6240F /* Functional Helpers.swift */,
+				CF190FC9226B5EF900618F77 /* Functional Helpers */,
 			);
 			path = Elements;
 			sourceTree = "<group>";
@@ -389,7 +409,10 @@
 				CF88578A21D6264400F96511 /* UserLocation.swift in Sources */,
 				CFD5B7EC218B4F5F0047C521 /* DataCell.swift in Sources */,
 				CF979106222A83A300BC4ED3 /* Factory.swift in Sources */,
+				CF190FCB226B5F1500618F77 /* Operators.swift in Sources */,
 				CFFC79232232C06A00A2B0F7 /* MainViewModel.swift in Sources */,
+				CF190FD1226B60F900618F77 /* Getters.swift in Sources */,
+				CF190FD3226B617F00618F77 /* Setters.swift in Sources */,
 				CFA007B92236B22C00F6E91B /* PassTableSection.swift in Sources */,
 				CFD36AFC217A19090025BB34 /* Pass.swift in Sources */,
 				CF3AABB421F7621500A626D2 /* DependencyContainer.swift in Sources */,
@@ -406,11 +429,12 @@
 				CF348A3B218C627A007A1F6F /* PassDetailsDataSource.swift in Sources */,
 				CFD5B7E9218B4D470047C521 /* viewModels.swift in Sources */,
 				CF0868F5221335340011BFDB /* MKMapView+Rx.swift in Sources */,
+				CF190FCF226B607400618F77 /* Map.swift in Sources */,
 				CF354635217E12D300759A84 /* Measurement.swift in Sources */,
 				CFD5B7F0218B51DD0047C521 /* MapCell.swift in Sources */,
 				CF979104222A79C200BC4ED3 /* MainCoordinator.swift in Sources */,
-				CF76F7CC225E36A700A6240F /* Functional Helpers.swift in Sources */,
 				CF549EAB220ED26F00133286 /* MKDirections+Rx.swift in Sources */,
+				CF190FCD226B603F00618F77 /* Curry Flip Zurry.swift in Sources */,
 				CF426DD92260D236009D3C5D /* ObservableType.swift in Sources */,
 				CF4E3FA321E0B4050019EBC0 /* DistanceAndTravelTimeCell.swift in Sources */,
 			);

@@ -4,8 +4,8 @@ import RxCocoa
 
 class UserLocation {
     private let locationManager = CLLocationManager()
-        |> (prop(\.desiredAccuracy)) { _ in kCLLocationAccuracyHundredMeters}
-        <> (prop(\.distanceFilter)) { _ in 100 }
+        |> mut(^\CLLocationManager.desiredAccuracy, kCLLocationAccuracyHundredMeters)
+        <> mut(^\CLLocationManager.distanceFilter, 100)
     
     private var isLocalizationAuthorizedWhenInUse: Bool {
         return CLLocationManager.authorizationStatus() == .authorizedWhenInUse

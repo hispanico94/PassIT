@@ -132,23 +132,25 @@ private func distanceAndTravelTime(_ response: MKDirections.ETAResponse) -> (CLL
 private func formatStrings(distance: CLLocationDistance, travelTime: TimeInterval) -> TravelInfo {
     let travelDistance = Measurement(value: distance, unit: UnitLength.meters).converted(to: .kilometers)
     
-    let distanceString = travelDistanceFormatter.string(from: travelDistance)
+    let distanceString =  travelDistanceFormatter.string(from: travelDistance)
     let travelTimeString = travelTimeFormatter.string(from: travelTime)!
     
     return TravelInfo(distance: distanceString, time: travelTimeString)
 }
 
 private let travelDistanceFormatter = MeasurementFormatter()
-    |> (prop(\.unitOptions)) { _ in .providedUnit}
-    <> (prop(\.numberFormatter)) { _ in
-        return NumberFormatter()
-            |> (prop(\.numberStyle)) { _ in .none }
+    |> mut(^\MeasurementFormatter.unitOptions, .providedUnit)
+    <> mver(^\MeasurementFormatter.numberFormatter) {
+        let formatter = NumberFormatter()
+            |> mut(^\NumberFormatter.numberStyle, .none)
+        
+        $0 = formatter
 }
 
 private let travelTimeFormatter = DateComponentsFormatter()
-    |> (prop(\.allowedUnits)) { _ in [.hour, .minute] }
-    <> (prop(\.unitsStyle)) { _ in .abbreviated }
-    <> (prop(\.zeroFormattingBehavior)) { _ in .dropAll }
+    |> mut(^\DateComponentsFormatter.allowedUnits, [.hour, .minute])
+    <> mut(^\.unitsStyle, .abbreviated)
+    <> mut(^\.zeroFormattingBehavior, .dropAll)
 
 private struct TravelInfo {
     let distance: String
