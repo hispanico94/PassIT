@@ -40,6 +40,17 @@ class PassCell: UITableViewCell {
             case .peak:
                 self.imageView?.image = UIImage(named: "peak_icon")
             }
+            self.imageView?.tintColor = .iconColor
         }
     }
+}
+
+private extension UIColor {
+  static var iconColor: UIColor {
+    if #available(iOS 13, *) {
+      return .secondaryLabel
+    } else {
+      return .black
+    }
+  }
 }
